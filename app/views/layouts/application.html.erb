@@ -45,9 +45,14 @@
           <button type="submit" class="btn btn-default">Search</button>
         </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to new_post_path, :style=>"text-decoration:none;" do %><i class="fa fa-upload" aria-hidden="true"></i> 投稿する<% end %></li>
-            <li><%= link_to new_user_session_path, :style=>"text-decoration:none;" do %><i class="fa fa-sign-in" aria-hidden="true"></i> ログイン<% end %></li>
-            <li><%= link_to new_user_registration_path,:style=>"text-decoration:none;" do %><i class="fa fa-user-plus" aria-hidden="true"></i> サインアップ<% end %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to new_post_path, :style=>"text-decoration:none;" do %><i class="fa fa-upload" aria-hidden="true"></i> 投稿する<% end %></li>
+              <li><%= link_to destroy_user_session_path, method: :delete, :style=>"text-decoration:none;" do %><i class="fa fa-sign-out" aria-hidden="true"></i> ログアウト<% end %></li>
+            <% else %>
+              <li><%= link_to new_user_session_path, :style=>"text-decoration:none;" do %><i class="fa fa-upload" aria-hidden="true"></i> 投稿する<% end %></li>
+              <li><%= link_to new_user_session_path, :style=>"text-decoration:none;" do %><i class="fa fa-sign-in" aria-hidden="true"></i> ログイン<% end %></li>
+              <li><%= link_to new_user_registration_path,:style=>"text-decoration:none;" do %><i class="fa fa-user-plus" aria-hidden="true"></i> サインアップ<% end %></li>
+            <% end %>
             <!-- <li class="active"><a href="/">Fixed top <span class="sr-only">(current)</span></a></li> -->
           </ul>
         </div><!--/.nav-collapse -->
@@ -60,10 +65,10 @@
       <div class="main">
       <%= yield %>
       </div>
-    </div> <!-- /container -->
-<div id="footer">Copyright © 2017 Business Knowledge Platform All Rights Reserved.
-      </div>
 
+      <!-- <div id="footer">Copyright © 2017 Business Knowledge Platform All Rights Reserved.
+      </div> -->
+    </div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
