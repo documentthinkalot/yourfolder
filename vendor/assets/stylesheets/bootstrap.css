@@ -1585,6 +1585,11 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+
+.main {
+  margin-top:20px;
+}
+
 @media (min-width: 768px) {
   .container {
     width: 750px;
