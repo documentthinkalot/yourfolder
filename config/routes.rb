@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :articles
   resources :posts
-  root :to => 'posts#index'
+  resources :tops, only: :index
+  root 'top#index'
 end

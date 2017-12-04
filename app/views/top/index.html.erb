@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="left_content col-lg-2">
+    <h1 style="margin-top:50px;">カテゴリ一覧</h1>
+  </div>
+  <div class="right_content col-lg-10">
+    <div class="bg_message">
+      <p style="font-size: 28pt;line-height: 30pt;">ー  働き方改革  －
+      <br>知識・情報・スキルをシェアして、業務効率を向上し、
+      <br>「考える」時間を増やす
+      <p>
+    </div>
+    <div class="row">
+      <div class="new_articles col-md-8">
+        <h1>新着ニュース</h1>
+          <div class="row">
+            <% @articles.each do |article| %>
+            <div class="col-md-4">
+              <h2><%= article.title %></h2>
+              <p><%= article.body %></p>
+              <p><%= link_to article do %><div class="btn btn-default" role="button">View Details &raquo;</div><% end %></p>
+              <%= link_to 'New Article', new_article_path %>
+            </div>
+            <% end %>
+          </div>
+      </div>
+      <div class="links  col-md-4">
+        <h1>関連リンク</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
