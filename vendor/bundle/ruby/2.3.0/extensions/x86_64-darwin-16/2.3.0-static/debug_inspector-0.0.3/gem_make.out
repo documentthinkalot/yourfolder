@@ -1,0 +1,15 @@
+current directory: /Users/kaishi9255/projects/business_knowledge_platform/vendor/bundle/ruby/2.3.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+/Users/kaishi9255/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20171204-75327-1m9z504.rb extconf.rb
+creating Makefile
+
+current directory: /Users/kaishi9255/projects/business_knowledge_platform/vendor/bundle/ruby/2.3.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" clean
+
+current directory: /Users/kaishi9255/projects/business_knowledge_platform/vendor/bundle/ruby/2.3.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+
+current directory: /Users/kaishi9255/projects/business_knowledge_platform/vendor/bundle/ruby/2.3.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20171204-75327-1jc5ir8
