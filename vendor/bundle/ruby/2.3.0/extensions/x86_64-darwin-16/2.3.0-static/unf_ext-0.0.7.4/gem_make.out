@@ -1,5 +1,5 @@
 current directory: /Users/kaishi9255/projects/business_knowledge_platform/vendor/bundle/ruby/2.3.0/gems/unf_ext-0.0.7.4/ext/unf_ext
-/Users/kaishi9255/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20171204-75327-1nrx10s.rb extconf.rb
+/Users/kaishi9255/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20171204-40610-txx1r.rb extconf.rb
 checking for main() in -lstdc++... yes
 creating Makefile
 
@@ -39,4 +39,4 @@ linking shared-object unf_ext.bundle
 
 current directory: /Users/kaishi9255/projects/business_knowledge_platform/vendor/bundle/ruby/2.3.0/gems/unf_ext-0.0.7.4/ext/unf_ext
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 unf_ext.bundle ./.gem.20171204-75327-1o7cv97
+/usr/bin/install -c -m 0755 unf_ext.bundle ./.gem.20171204-40610-1m3gwe0

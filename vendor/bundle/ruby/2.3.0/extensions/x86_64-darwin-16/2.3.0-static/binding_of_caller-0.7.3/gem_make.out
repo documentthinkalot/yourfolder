@@ -1,5 +1,5 @@
 current directory: /Users/kaishi9255/projects/business_knowledge_platform/vendor/bundle/ruby/2.3.0/gems/binding_of_caller-0.7.3/ext/binding_of_caller
-/Users/kaishi9255/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20171204-75327-cigqov.rb extconf.rb
+/Users/kaishi9255/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20171204-40610-l8be4m.rb extconf.rb
 
 current directory: /Users/kaishi9255/projects/business_knowledge_platform/vendor/bundle/ruby/2.3.0/gems/binding_of_caller-0.7.3/ext/binding_of_caller
 make "DESTDIR=" clean

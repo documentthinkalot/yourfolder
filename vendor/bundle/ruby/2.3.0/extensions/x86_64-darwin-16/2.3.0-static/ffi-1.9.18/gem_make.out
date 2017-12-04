@@ -1,5 +1,5 @@
 current directory: /Users/kaishi9255/projects/business_knowledge_platform/vendor/bundle/ruby/2.3.0/gems/ffi-1.9.18/ext/ffi_c
-/Users/kaishi9255/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20171204-75327-1ou3itc.rb extconf.rb
+/Users/kaishi9255/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20171204-40610-1i96m7b.rb extconf.rb
 checking for ffi.h... no
 checking for ffi.h in /usr/local/include,/usr/include/ffi... yes
 checking for ffi_call() in -lffi... yes
@@ -62,4 +62,4 @@ linking shared-object ffi_c.bundle
 
 current directory: /Users/kaishi9255/projects/business_knowledge_platform/vendor/bundle/ruby/2.3.0/gems/ffi-1.9.18/ext/ffi_c
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20171204-75327-1070k0t
+/usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20171204-40610-13lgo2b

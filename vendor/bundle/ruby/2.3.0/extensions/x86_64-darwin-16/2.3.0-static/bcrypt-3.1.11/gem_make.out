@@ -1,5 +1,5 @@
 current directory: /Users/kaishi9255/projects/business_knowledge_platform/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
-/Users/kaishi9255/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20171204-75327-mlns00.rb extconf.rb
+/Users/kaishi9255/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20171204-40610-ojhgmr.rb extconf.rb
 creating Makefile
 
 current directory: /Users/kaishi9255/projects/business_knowledge_platform/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
@@ -16,4 +16,4 @@ linking shared-object bcrypt_ext.bundle
 
 current directory: /Users/kaishi9255/projects/business_knowledge_platform/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20171204-75327-8unmpf
+/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20171204-40610-mn4e9j
