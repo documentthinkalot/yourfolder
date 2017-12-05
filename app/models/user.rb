@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   belongs_to :industry
   belongs_to :occupation
   has_many :posts
+  has_many :comments
   #usernameを必須とする
   validates_uniqueness_of :email, :nickname
   validates_presence_of :nickname, :industry_id, :occupation_id, :place_id, :position, :circumstances, :age
