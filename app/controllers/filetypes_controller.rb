@@ -1,0 +1,2 @@
+class FiletypesController < ApplicationController
+end

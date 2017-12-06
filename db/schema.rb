@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205062055) do
+ActiveRecord::Schema.define(version: 20171206052923) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20171205062055) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "ancestry",   limit: 255
+  end
+
+  add_index "categories", ["ancestry"], name: "index_categories_on_ancestry", using: :btree
+
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
@@ -27,6 +36,15 @@ ActiveRecord::Schema.define(version: 20171205062055) do
     t.text     "body",       limit: 65535
     t.integer  "post_id",    limit: 4
   end
+
+  create_table "filetypes", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "ancestry",   limit: 255
+  end
+
+  add_index "filetypes", ["ancestry"], name: "index_filetypes_on_ancestry", using: :btree
 
   create_table "industries", force: :cascade do |t|
     t.datetime "created_at",             null: false
@@ -53,6 +71,7 @@ ActiveRecord::Schema.define(version: 20171205062055) do
     t.datetime "updated_at",                null: false
     t.string   "user_id",     limit: 255
     t.string   "category_id", limit: 255
+    t.integer  "filetype_id", limit: 4
   end
 
   create_table "users", force: :cascade do |t|
