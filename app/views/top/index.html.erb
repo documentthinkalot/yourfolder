@@ -1,7 +1,16 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="left_content col-lg-2">
-    <h1 style="margin-top:50px;">カテゴリ一覧</h1>
+    <div class="list-group">
+      <a href="#" class="list-group-item active">
+        カテゴリ一覧
+      </a>
+      <a href="#" class="list-group-item">Word</a>
+      <a href="#" class="list-group-item">Power Point</a>
+      <a href="#" class="list-group-item">Excel</a>
+      <a href="#" class="list-group-item">PDF</a>
+      <a href="#" class="list-group-item">TEXT</a>
+    </div>
   </div>
   <div class="right_content col-lg-10">
     <div class="bg_message">
@@ -13,19 +22,28 @@
     <div class="row">
       <div class="new_articles col-md-8">
         <h1>新着ニュース</h1>
-          <div class="row">
-            <% @articles.each do |article| %>
-            <div class="col-md-4">
-              <h2><%= article.title %></h2>
-              <p><%= article.body %></p>
-              <p><%= link_to article do %><div class="btn btn-default" role="button">View Details &raquo;</div><% end %></p>
-              <%= link_to 'New Article', new_article_path %>
+        <div class="row">
+        <% @articles.each do |article| %>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <div class="caption">
+                <img src="..." alt="image">
+                <h3><%= article.title %></h3>
+                <p><%= article.body %></p>
+                <%= link_to article do %><div class="btn btn-default" role="button">もっと見る &raquo;</div><% end %>
+              </div>
             </div>
-            <% end %>
           </div>
+        <% end %>
+        </div>
       </div>
       <div class="links  col-md-4">
         <h1>関連リンク</h1>
+        <ul>
+          <li><a>リンク１</a></li>
+          <li><a>リンク２</a></li>
+          <li><a>リンク３</a></li>
+        </ul>
       </div>
     </div>
   </div>
