@@ -1,5 +1,12 @@
 <% @comments.each do |comment| %>
   <div id="comment_<%= comment.id %>">
-    </br><%= comment.body %></br>
+    <%= comment.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
+    </br><%= comment.user.nickname %>:
+    </br><%= comment.body %>
+    <% if user_signed_in? && comment.user == current_user %>
+    <br><%= link_to '編集', edit_comment_path(comment) %>
+    <%= link_to '削除', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+    <hr>
   </div>
 <% end %>

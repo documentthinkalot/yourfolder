@@ -1,15 +1,13 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="left_content col-lg-2">
-    <div class="list-group">
-      <a href="#" class="list-group-item active">
-        カテゴリ一覧
-      </a>
-      <a href="#" class="list-group-item">Word</a>
-      <a href="#" class="list-group-item">Power Point</a>
-      <a href="#" class="list-group-item">Excel</a>
-      <a href="#" class="list-group-item">PDF</a>
-      <a href="#" class="list-group-item">TEXT</a>
+    <h3>カテゴリ一覧</h3>
+    <div class="panel panel-default">
+      <div class="list-group">
+        <a class="list-group-item" href="#">メニューＡ</a>
+        <a class="list-group-item" href="#">メニューＢ</a>
+        <a class="list-group-item" href="#">メニューＣ</a>
+      </div>
     </div>
   </div>
   <div class="right_content col-lg-10">
@@ -21,14 +19,14 @@
     </div>
     <div class="row">
       <div class="new_articles col-md-8">
-        <h1>新着ニュース</h1>
+        <h3>新着ニュース</h3>
         <div class="row">
         <% @articles.each do |article| %>
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
               <div class="caption">
                 <img src="..." alt="image">
-                <h3><%= article.title %></h3>
+                <h4><strong><%= article.title %></strong></h4>
                 <p><%= article.body %></p>
                 <%= link_to article do %><div class="btn btn-default" role="button">もっと見る &raquo;</div><% end %>
               </div>
@@ -38,7 +36,7 @@
         </div>
       </div>
       <div class="links  col-md-4">
-        <h1>関連リンク</h1>
+        <h3>関連リンク</h3>
         <ul>
           <li><a>リンク１</a></li>
           <li><a>リンク２</a></li>

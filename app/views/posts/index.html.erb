@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>全ての記事</h1>
+<h3>全ての記事</h3>
 
 <div class="row">
   <% @posts.each do |post| %>
-    <div class="col-sm-6 col-md-4">
+    <div class="col-sm-6 col-md-3">
       <div class="thumbnail">
         <div class="caption">
           <img src="..." alt="image">
-          <h3><%= post.title %></h3>
+          <h4><strong><%= post.title %></strong></h4>
           <p><%= post.body %></p>
           <%= link_to post do %><div class="btn btn-default" role="button">もっと見る &raquo;</div><% end %>
         </div>
@@ -16,5 +16,3 @@
     </div>
   <% end %>
 </div>
-
-<%= link_to '投稿する', new_post_path %>
