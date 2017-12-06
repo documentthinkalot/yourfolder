@@ -1,11 +1,10 @@
 <% @comments.each do |comment| %>
   <div id="comment_<%= comment.id %>">
-    <%= comment.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
-    </br><%= comment.user.nickname %>:
-    </br><%= comment.body %>
+    <strong><i class="fa fa-comment" aria-hidden="true"></i> <%= comment.user.nickname %></strong> <%= comment.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
     <% if user_signed_in? && comment.user == current_user %>
-    <br><%= link_to '編集', edit_comment_path(comment) %>
-    <%= link_to '削除', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <span> <%= link_to comment_path(comment), method: :delete do%> <i class="fa fa-trash fa-lg" aria-hidden="true"></i></span>
+    <% end %>
+    </br><%= comment.body %>
   <% end %>
     <hr>
   </div>
