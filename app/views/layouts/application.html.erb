@@ -38,15 +38,15 @@
               </ul>
             </li>
             <li class="dropdown">
-              <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i> 探す<span class="caret"></span></a>
+              <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i> アイテムを探す<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li class="dropdown-header">ジャンル</li>
-                <li><%= link_to posts_path do %>全ての記事<% end %></li>
+                <li><%= link_to posts_path do %>全てのアイテム<% end %></li>
                 <li><a href="/">Word</a></li>
                 <li><a href="/">Power Point</a></li>
                 <li><a href="/">Excel</a></li>
                 <li><a href="/">PDF</a></li>
-                <li><a href="/">テキストのみの記事</a></li>
+                <li><a href="/">メモ</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">特集</li>
                 <li><a href="/">新着記事</a></li>
@@ -56,7 +56,7 @@
           </ul>
           <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="キーワードを入力してください" size="40">
+            <input type="text" class="form-control" placeholder="キーワードを入力してください" size="30">
           </div>
           <button type="submit" class="btn btn-default">Search</button>
         </form>
@@ -67,7 +67,7 @@
               <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <%= current_user.nickname %><span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/">アカウント情報</a></li>
-                <li><a href="/">書いた記事</a></li>
+                <li><%= link_to user_path(current_user) do %>アップロードしたアイテム<% end %></li>
                 <li><a href="/">お気に入りの記事</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">設定</li>

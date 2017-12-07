@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :comments
   devise_for :users
+  resources :users
   resources :articles
   resources :posts do
     collection do
