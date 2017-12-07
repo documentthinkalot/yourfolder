@@ -76,7 +76,7 @@
             </li>
               <li><%= link_to destroy_user_session_path, method: :delete, :style=>"text-decoration:none;" do %><i class="fa fa-sign-out" aria-hidden="true"></i> ログアウト<% end %></li>
             <% else %>
-              <li><%= link_to new_user_session_path, :style=>"text-decoration:none;" do %><i class="fa fa-upload" aria-hidden="true"></i> 投稿する<% end %></li>
+              <li><%= link_to new_user_session_path, :style=>"text-decoration:none;" do %><i class="fa fa-upload" aria-hidden="true"></i> アップロード<% end %></li>
               <li><%= link_to new_user_session_path, :style=>"text-decoration:none;" do %><i class="fa fa-sign-in" aria-hidden="true"></i> ログイン<% end %></li>
               <li><%= link_to new_user_registration_path,:style=>"text-decoration:none;" do %><i class="fa fa-user-plus" aria-hidden="true"></i> アカウント作成<% end %></li>
             <% end %>
