@@ -11,7 +11,7 @@ class FiletypesController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def category_params
+    def filetype_params
       params.require(:filetype).permit(:name)
     end
 end

@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h3>"<%= @filetype.name %>"のアイテム</h3>
+<h3><%= @filetype.name %> のアイテム
+<br><% @filetype.filetype2s.each do |filetype2| %>
+<%= link_to filetype2_path(id: filetype2.id) do %><span class="label label-default"><%= filetype2.filetype2_name %></span><% end %>
+<% end %>
+</h3>
 
 <div class="row">
   <% @posts.each do |post| %>

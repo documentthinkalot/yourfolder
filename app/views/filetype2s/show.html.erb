@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h3>全ての記事</h3>
+<h3><%= @filetype2.filetype.name %> > <%= @filetype2.filetype2_name %> のアイテム</h3>
 
 <div class="row">
   <% @posts.each do |post| %>
@@ -8,7 +8,7 @@
       <div class="thumbnail">
         <div class="caption">
           <img src="..." alt="image">
-          <h4><strong><%= post.title %></strong> <span class="label label-default"><%= post.filetype.name %></span></h4>
+          <h4><strong><%= post.title %></strong></h4>
           <p><%= post.body %></p>
           <%= link_to post do %><div class="btn btn-default" role="button">もっと見る &raquo;</div><% end %>
         </div>
