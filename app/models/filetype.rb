@@ -1,4 +1,4 @@
 class Filetype < ActiveRecord::Base
-  has_ancestry
   has_many :posts
+  has_many :filetype2s
 end

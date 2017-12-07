@@ -1,4 +1,4 @@
 class Category < ActiveRecord::Base
-  has_ancestry
   has_many :posts
+  has_many :subcategories
 end

@@ -1,3 +1,19 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on 'change', '#post_category_id', ->
+  $.ajax(
+    type: 'GET'
+    url: '/posts/get_subcategory'
+    data: {
+      category_id: $(this).val()
+    }
+  ).done (data) ->
+    $('.subcategory_area').html(data)
+
+$(document).on 'change', '#post_filetype_id', ->
+  $.ajax(
+    type: 'GET'
+    url: '/posts/get_filetype2'
+    data: {
+      filetype_id: $(this).val()
+    }
+  ).done (data) ->
+    $('.filetype2_area').html(data)

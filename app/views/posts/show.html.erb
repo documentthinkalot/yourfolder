@@ -3,13 +3,7 @@
 <div class="info">
   <p>
     <h1><strong><%= @post.title %></strong> by <%= @post.user.nickname %></h1>
-    <p>ファイル種別：
-      <% if @post.filetype.parent!=nil %>
-        <%= @post.filetype.parent.name %> > <%= @post.filetype.name %>
-      <% else %>
-      <%= @post.filetype.name %>
-      <% end %>
-    </p>
+    <p>ファイル種別：<%= @post.filetype.name %> > <%= @post.filetype2.filetype2_name %></p>
     <p>カテゴリ：<%= @post.category.name %></p>
   </p>
 </div>
