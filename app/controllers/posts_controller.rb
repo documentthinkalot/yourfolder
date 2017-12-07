@@ -68,6 +68,10 @@ class PostsController < ApplicationController
     render partial: 'select_subcategory', locals: {category_id: params[:category_id]}
   end
 
+  def get_sub2category
+    render partial: 'select_sub2category', locals: {subcategory_id: params[:subcategory_id]}
+  end
+
   def get_filetype2
     render partial: 'select_filetype2', locals: {filetype_id: params[:filetype_id]}
   end
@@ -80,6 +84,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :category_id, :user_id, :filetype_id, :subcategory_id, :filetype2_id)
+      params.require(:post).permit(:title, :body, :category_id, :user_id, :filetype_id, :subcategory_id, :sub2category_id,:filetype2_id)
     end
 end

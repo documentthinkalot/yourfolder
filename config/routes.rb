@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get 'get_subcategory'
+      get 'get_sub2category'
       get 'get_filetype2'
     end
   end

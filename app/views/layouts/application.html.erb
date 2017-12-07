@@ -71,7 +71,7 @@
                 <li><a href="/">お気に入りの記事</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">設定</li>
-                <li><a href="/">アカウント情報の変更</a></li>
+                <li><%= link_to edit_user_registration_path,:style=>"text-decoration:none;" do %>アカウント情報の変更<% end %></li>
               </ul>
             </li>
               <li><%= link_to destroy_user_session_path, method: :delete, :style=>"text-decoration:none;" do %><i class="fa fa-sign-out" aria-hidden="true"></i> ログアウト<% end %></li>
