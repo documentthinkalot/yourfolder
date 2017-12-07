@@ -29,6 +29,7 @@
             <li class="dropdown">
               <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU<span class="caret"></span></a>
               <ul class="dropdown-menu">
+                <li><a href="/">共有リクエスト</a></li>
                 <li><a href="/">フィードバック</a></li>
                 <li><a href="/">Fee Free コンサルリクエスト</a></li>
                 <li><a href="/">マイ上司・マイ部下</a></li>
@@ -37,7 +38,7 @@
               </ul>
             </li>
             <li class="dropdown">
-              <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i> 記事を探す<span class="caret"></span></a>
+              <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i> 探す<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li class="dropdown-header">ジャンル</li>
                 <li><%= link_to posts_path do %>全ての記事<% end %></li>
@@ -61,7 +62,7 @@
         </form>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-              <li><%= link_to new_post_path, :style=>"text-decoration:none;" do %><i class="fa fa-upload" aria-hidden="true"></i> 投稿する<% end %></li>
+              <li><%= link_to new_post_path, :style=>"text-decoration:none;" do %><i class="fa fa-upload" aria-hidden="true"></i> アップロード<% end %></li>
               <li class="dropdown">
               <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> <%= current_user.nickname %><span class="caret"></span></a>
               <ul class="dropdown-menu">

@@ -4,7 +4,7 @@
   <p>
     <h1><strong><%= @post.title %></strong> by <%= @post.user.nickname %></h1>
     <p>ファイル種別：
-      <% if @post.filetype.ancestry? %>
+      <% if @post.filetype.parent!=nil %>
         <%= @post.filetype.parent.name %> > <%= @post.filetype.name %>
       <% else %>
       <%= @post.filetype.name %>
