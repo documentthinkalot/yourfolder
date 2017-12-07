@@ -17,9 +17,14 @@
 <br>
 <div class="file">
   <% if @post.file? %>
-    <object data=<%= @post.file.url%> type="application/pdf" width="100%" height="400px"></object>
-    <p>
-    <%= link_to @post.file.url, class:"btn btn-primary btn-md" do %><i class="fa fa-download" aria-hidden="true"></i> ダウンロード<% end %></p>
+    <!-- PDFファイルはそのまま表示、それ以外のファイルは変換されたPDFファイルを表示 -->
+    <% if File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf" %>
+      <object data=<%= @post.file.url %> type="application/pdf" width="100%" height="800px"></object>
+    <% else %>
+        <object data=<%= @pdf_url %> type="application/pdf" width="100%" height="800px"></object>
+        <p>
+        <%= link_to @post.file.url, class:"btn btn-primary btn-md" do %><i class="fa fa-download" aria-hidden="true"></i> ダウンロード<% end %></p>
+    <% end %>
   <% end %>
 </div>
 

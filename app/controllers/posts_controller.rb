@@ -13,6 +13,10 @@ class PostsController < ApplicationController
     @post = Post.includes(:user).find(params[:id])
     @comments = @post.comments.includes(:user).all
     @comment  = @post.comments.build(user_id: current_user.id) if current_user
+    # 添付ファイルがある場合のみpdf_urlを設定する処理
+    if @post.file?
+      @pdf_url = @post.file.url+".pdf"
+    end
   end
 
   # GET /posts/new
@@ -28,10 +32,13 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        # pdf以外のファイルをpdfファイルへ変換して保存する処理
+        unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
+          Libreconv.convert(@post.file.path, @post.file.path+".pdf")
+        end
+        format.html { redirect_to @post, notice: 'アップロードが完了しました。' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -43,9 +50,20 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    # pdf以外のファイルの場合は変換したpdfファイルを削除する処理
+    unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
+      if @post.file?
+        @pdf_url = @post.file.path+".pdf"
+        File.delete(@pdf_url)
+      end
+    end
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
+          Libreconv.convert(@post.file.path, @post.file.path+".pdf")
+          @pdf_url = @post.file.url+".pdf"
+        end
+        format.html { redirect_to @post, notice: '投稿はアップデートされました。' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -57,9 +75,16 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    # pdf以外のファイルの場合は変換したpdfファイルを削除する処理
+    unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
+      if @post.file?
+        @pdf_url = @post.file.path+".pdf"
+        File.delete(@pdf_url)
+      end
+    end
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to posts_url, notice: '投稿は削除されました。' }
       format.json { head :no_content }
     end
   end

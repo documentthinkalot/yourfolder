@@ -50,3 +50,4 @@ end
   gem 'devise-bootstrap-views'
   gem 'mechanize'
   gem "carrierwave"
+  gem 'libreconv'
