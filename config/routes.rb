@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     end
   end
   resources :tops, only: :index
+  resources :categories, only: :show
+  resources :filetypes, only: :show
   root 'top#index'
 end

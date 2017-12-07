@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h3>カテゴリ"<%= @category.name %>"アイテム</h3>
+
+<div class="row">
+  <% @posts.each do |post| %>
+    <div class="col-sm-6 col-md-3 post">
+      <div class="thumbnail">
+        <div class="caption">
+          <img src="..." alt="image">
+          <h4><strong><%= post.title %></strong></h4>
+          <p><%= post.body %></p>
+          <%= link_to post do %><div class="btn btn-default" role="button">もっと見る &raquo;</div><% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

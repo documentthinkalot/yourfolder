@@ -1,2 +1,17 @@
 class FiletypesController < ApplicationController
+  before_action :set_filetype, only: [:show]
+  def show
+    @posts = @filetype.posts
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_filetype
+      @filetype = Filetype.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def category_params
+      params.require(:filetype).permit(:name)
+    end
 end

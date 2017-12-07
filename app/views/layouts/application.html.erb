@@ -42,11 +42,9 @@
               <ul class="dropdown-menu">
                 <li class="dropdown-header">ジャンル</li>
                 <li><%= link_to posts_path do %>全てのアイテム<% end %></li>
-                <li><a href="/">Word</a></li>
-                <li><a href="/">Power Point</a></li>
-                <li><a href="/">Excel</a></li>
-                <li><a href="/">PDF</a></li>
-                <li><a href="/">メモ</a></li>
+                <% Filetype.all.each do |filetype| %>
+                  <li><%= link_to filetype_path(id: filetype.id) do %><%= filetype.name %><% end %></li>
+                <% end %>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">特集</li>
                 <li><a href="/">新着記事</a></li>
