@@ -3,8 +3,14 @@
 <div class="info">
   <p>
     <h1><strong><%= @post.title %></strong> by <%= link_to user_path(current_user) do %><%= @post.user.nickname %><% end %></h1>
-    <p>ファイル種別：<%= @post.filetype.name %> > <%= @post.filetype2.filetype2_name %></p>
-    <p>カテゴリ：<%= @post.category.name %></p>
+    <p><i class="fa fa-file-o" aria-hidden="true"></i> <%= @post.filetype.name %> > <%= @post.filetype2.filetype2_name %></p>
+    <p><i class="fa fa-info-circle" aria-hidden="true"></i> <%= @post.category.name %></p>
+    <p style="text-align: right; margin-top:-30px;">
+      <% if user_signed_in? && @post.user == current_user %>
+        <%= link_to edit_post_path(@post) do %><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i> 編集<% end %> |
+        <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-trash fa-lg" aria-hidden="true"></i> 削除<% end %>
+      <% end %>
+    </p>
   </p>
 </div>
 
@@ -37,9 +43,3 @@
   <% else %>
     <%= link_to "ログインしてコメントを書く", new_user_session_path, class: 'post' %>
 <% end %>
-
-<% if user_signed_in? && @post.user == current_user %>
-  <%= link_to '編集', edit_post_path(@post) %> |
-  <%= link_to '削除', @post, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<% end %>
-<%= link_to '戻る', posts_path %>

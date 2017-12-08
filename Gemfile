@@ -51,3 +51,4 @@ end
   gem 'mechanize'
   gem "carrierwave"
   gem 'libreconv'
+  gem 'kaminari'

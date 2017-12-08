@@ -1,7 +1,7 @@
 class Filetype2sController < ApplicationController
   before_action :set_filetype2, only: [:show]
   def show
-    @posts = @filetype2.posts
+    @posts = @filetype2.posts.page(params[:page]).per(12)
   end
 
   private
