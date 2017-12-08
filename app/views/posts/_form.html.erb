@@ -32,8 +32,9 @@
   <div class="form-group sub2category_area">
   </div>
   <div class="form-group">
-    <%= f.label :file, 'ファイルをアップロード' %><br>
-    <%= f.file_field :file %>
+    <%= f.label :file, 'ファイルをアップロード' %>
+    <span>（対応している拡張子：".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx"）</span>
+    <%= f.file_field :file, accept:"application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-powerpoint,  application/vnd.openxmlformats-officedocument.presentationml.presentation" %>
     <%= f.hidden_field :file_cache %>
   </div>
   <div class="form-group">
