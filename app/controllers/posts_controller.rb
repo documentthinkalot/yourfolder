@@ -35,8 +35,10 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         # pdf以外のファイルをpdfファイルへ変換して保存する処理
-        unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
-          Libreconv.convert(@post.file.path, @post.file.path+".pdf")
+        if @post.file?
+          unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
+            Libreconv.convert(@post.file.path, @post.file.path+".pdf")
+          end
         end
         format.html { redirect_to @post, notice: 'アップロードが完了しました。' }
         format.json { render :show, status: :created, location: @post }
