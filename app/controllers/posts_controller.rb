@@ -51,17 +51,19 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     # pdf以外のファイルの場合は変換したpdfファイルを削除する処理
-    unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
-      if @post.file?
+    if @post.file?
+      unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
         @pdf_url = @post.file.path+".pdf"
         File.delete(@pdf_url)
       end
     end
     respond_to do |format|
       if @post.update(post_params)
-        unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
-          Libreconv.convert(@post.file.path, @post.file.path+".pdf")
-          @pdf_url = @post.file.url+".pdf"
+        if @post.file?
+          unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
+            Libreconv.convert(@post.file.path, @post.file.path+".pdf")
+            @pdf_url = @post.file.url+".pdf"
+          end
         end
         format.html { redirect_to @post, notice: '投稿はアップデートされました。' }
         format.json { render :show, status: :ok, location: @post }
@@ -76,8 +78,8 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     # pdf以外のファイルの場合は変換したpdfファイルを削除する処理
-    unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
-      if @post.file?
+    if @post.file?
+      unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
         @pdf_url = @post.file.path+".pdf"
         File.delete(@pdf_url)
       end
