@@ -2,38 +2,45 @@
 
 <div class="info">
   <p>
-    <h1><strong><%= @post.title %></strong> by <%= link_to user_path(current_user) do %><%= @post.user.nickname %><% end %></h1>
-    <p><i class="fa fa-file-o" aria-hidden="true"></i> <%= @post.filetype.name %> > <%= @post.filetype2.filetype2_name %></p>
+    <h1><strong><%= @post.title %></strong> by <%= link_to user_path(@post.user) do %><%= @post.user.nickname %><% end %></h1>
+    <p><i class="fa fa-file-o" aria-hidden="true"></i> <%= link_to filetype_path(@post.filetype) do %><%= @post.filetype.name %><% end %> > <%= link_to filetype2_path(@post.filetype2) do %><%= @post.filetype2.filetype2_name %><% end %></p>
     <p><i class="fa fa-info-circle" aria-hidden="true"></i> <%= @post.category.name %></p>
+    <p style="color:red;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> <%= current_user.nickname %>さんがアップロードしたアイテムです</p>
     <p style="text-align: right; margin-top:-30px;">
       <% if user_signed_in? && @post.user == current_user %>
-        <%= link_to edit_post_path(@post) do %><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i> 編集<% end %> |
-        <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-trash fa-lg" aria-hidden="true"></i> 削除<% end %>
+        <%= link_to edit_post_path(@post) do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 編集<% end %> |
+        <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-trash" aria-hidden="true"></i> 削除<% end %>
       <% end %>
     </p>
   </p>
 </div>
 
 <hr>
-<div class="body">
-  <p>
-    <%= @post.body %>
-  </p>
-</div>
-<br>
-<div class="file">
+<div class="row body">
   <% if @post.file? %>
-    <!-- PDFファイルはそのまま表示、それ以外のファイルは変換されたPDFファイルを表示 -->
-    <% if File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf" %>
-      <object data=<%= @post.file.url %> type="application/pdf" width="100%" height="800px"></object>
-    <% else %>
-        <object data=<%= @pdf_url %> type="application/pdf" width="100%" height="800px"></object>
-        <p>
-        <%= link_to @post.file.url, class:"btn btn-primary btn-md" do %><i class="fa fa-download" aria-hidden="true"></i> ダウンロード<% end %></p>
-    <% end %>
+    <div class="col-md-4">
+      <p>
+        <%= simple_format(@post.body) %>
+      </p>
+    </div>
+    <br>
+    <div class="file col-md-8">
+      <!-- PDFファイルはそのまま表示、それ以外のファイルは変換されたPDFファイルを表示 -->
+      <% if File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf" %>
+        <object data=<%= @post.file.url %> type="application/pdf" width="100%" height="900px"></object>
+      <% else %>
+          <object data=<%= @pdf_url %> type="application/pdf" width="100%" height="900px"></object>
+      <% end %>
+      <p>
+        <%= link_to @post.file.url, class:"btn btn-primary btn-md" do %><i class="fa fa-download" aria-hidden="true"></i> ダウンロード<% end %>
+      </p>
+    </div>
+  <% else %>
+    <p>
+      <%= simple_format(@post.body) %>
+    </p>
   <% end %>
 </div>
-
 <h3><i class="fa fa-comments" aria-hidden="true"></i> コメント</h3>
 <div class="comments" id="comments">
     <%= render partial: 'comments', locals: {comments: @comments} %>

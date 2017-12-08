@@ -3,7 +3,7 @@
     <div class="col-sm-6 col-md-3 post">
       <div class="thumbnail">
         <div class="caption">
-          <div style="height:200px;">
+          <div style="height:180px;">
             <% if post.file? %>
               <%= link_to post do %>
                 <img src=<%= post.file.url+".jpg" %> alt="image" style="position: absolute; top: 20px; bottom: 0; left: 0; right: 0; margin: 0 auto; max-width:80%; max-height:180px;">
@@ -15,14 +15,13 @@
             <% end %>
           </div>
           <h4>
-            <p style="height:55px; font-size:10pt;"><strong><%= post.title.truncate(32, omission: '......') %></strong>
+            <p style="height:55px; font-size:10pt;"><%= link_to post do %><strong><%= post.title.truncate(32, omission: '......') %></strong><% end %>
             <br><%= link_to filetype_path(id: post.filetype.id) do %><span class="label label-default"><%= post.filetype.name %></span><% end %>
             </p>
           </h4>
-          <p style="height:80px; font-size: 9pt;"><%= post.body.truncate(66, omission: '......') %></p>
+          <p style="height:30px; font-size: 9pt;"><%= post.body.truncate(35, omission: '......') %></p>
           <hr>
           <div class="post_info"><i class="fa fa-comments fa-lg" aria-hidden="true"></i> <%= post.comments.length %></div>
-          <%= link_to post do %><div class="btn btn-default" role="button">もっと見る &raquo;</div><% end %>
         </div>
       </div>
     </div>
