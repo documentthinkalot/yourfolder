@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="row body">
+  <!-- ファイルが添付されている場合のビュー -->
   <% if @post.file? %>
     <div class="col-md-5">
       <div class="info">
@@ -35,21 +36,22 @@
       </p>
     </div>
   <% else %>
-      <div class="info">
-        <p>
-          <p style="margin-bottom:-10px;"><%= @post.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
-          <h1><strong><%= @post.title %></strong> by <%= link_to user_path(@post.user) do %><%= @post.user.nickname %><% end %></h1>
-          <p><i class="fa fa-file-o" aria-hidden="true"></i> <%= link_to filetype_path(@post.filetype) do %><%= @post.filetype.name %><% end %> > <%= link_to filetype2_path(@post.filetype2) do %><%= @post.filetype2.filetype2_name %><% end %></p>
-          <p><i class="fa fa-info-circle" aria-hidden="true"></i> <%= @post.category.name %></p>
-          <p style="color:red;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> <%= current_user.nickname %>さんがアップロードしたアイテムです</p>
-          <p style="text-align: right; margin-top:-30px;">
-            <% if user_signed_in? && @post.user == current_user %>
-              <%= link_to edit_post_path(@post) do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 編集<% end %> |
-              <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-trash" aria-hidden="true"></i> 削除<% end %>
-            <% end %>
-          </p>
+  <!-- ファイルが添付されていない場合のビュー -->
+    <div class="info">
+      <p>
+        <p style="margin-bottom:-10px;"><%= @post.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
+        <h1><strong><%= @post.title %></strong> by <%= link_to user_path(@post.user) do %><%= @post.user.nickname %><% end %></h1>
+        <p><i class="fa fa-file-o" aria-hidden="true"></i> <%= link_to filetype_path(@post.filetype) do %><%= @post.filetype.name %><% end %> > <%= link_to filetype2_path(@post.filetype2) do %><%= @post.filetype2.filetype2_name %><% end %></p>
+        <p><i class="fa fa-info-circle" aria-hidden="true"></i> <%= @post.category.name %></p>
+        <p style="color:red;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> <%= current_user.nickname %>さんがアップロードしたアイテムです</p>
+        <p style="text-align: right; margin-top:-30px;">
+          <% if user_signed_in? && @post.user == current_user %>
+            <%= link_to edit_post_path(@post) do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 編集<% end %> |
+            <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-trash" aria-hidden="true"></i> 削除<% end %>
+          <% end %>
         </p>
-      </div>
+      </p>
+    </div>
     <p>
       <hr>
       <%= simple_format(@post.body) %>
