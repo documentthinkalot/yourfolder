@@ -2,21 +2,4 @@
 
 <h3><%= @filetype2.filetype.name %> > <%= @filetype2.filetype2_name %> のアイテム</h3>
 
-<div class="row">
-  <% @posts.each do |post| %>
-    <div class="col-sm-6 col-md-3 post">
-      <div class="thumbnail">
-        <div class="caption">
-          <img src="..." alt="image">
-          <h4><strong><%= post.title %></strong>
-            <%= link_to filetype_path(id: post.filetype.id) do %><span class="label label-default"><%= post.filetype.name %></span><% end %></h4>
-          <p style="min-height:170px;"><%= post.body.truncate(111, omission: '......') %></p>
-          <hr>
-          <div class="post_info"><i class="fa fa-comments fa-lg" aria-hidden="true"></i> <%= post.comments.length %></div>
-          <%= link_to post do %><div class="btn btn-default" role="button">もっと見る &raquo;</div><% end %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  <div class="pagenation"><%= paginate @posts %></div>
-</div>
+<%= render partial: '/posts/posts_index', locals: {posts: @posts} %>
