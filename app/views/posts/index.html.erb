@@ -18,9 +18,12 @@
               <% end %>
             <% end %>
           </div>
-          <h4><strong><%= post.title %></strong>
-            <%= link_to filetype_path(id: post.filetype.id) do %><span class="label label-default"><%= post.filetype.name %></span><% end %></h4>
-          <p style="min-height:60px;"><%= post.body.truncate(39, omission: '......') %></p>
+          <h4>
+            <p style="height:55px; font-size:10pt;"><strong><%= post.title.truncate(32, omission: '......') %></strong>
+            <br><%= link_to filetype_path(id: post.filetype.id) do %><span class="label label-default"><%= post.filetype.name %></span><% end %>
+            </p>
+          </h4>
+          <p style="height:80px; font-size: 9pt;"><%= post.body.truncate(66, omission: '......') %></p>
           <hr>
           <div class="post_info"><i class="fa fa-comments fa-lg" aria-hidden="true"></i> <%= post.comments.length %></div>
           <%= link_to post do %><div class="btn btn-default" role="button">もっと見る &raquo;</div><% end %>
