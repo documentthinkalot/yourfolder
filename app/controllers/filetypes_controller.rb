@@ -1,7 +1,7 @@
 class FiletypesController < ApplicationController
   before_action :set_filetype, only: [:show]
   def show
-    @posts = @filetype.posts.page(params[:page]).per(12)
+    @posts = @filetype.posts.order("created_at desc").page(params[:page]).per(12)
   end
 
   private

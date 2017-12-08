@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show]
   def show
-    @posts = @category.posts.page(params[:page]).per(12)
+    @posts = @category.posts.order("created_at desc").page(params[:page]).per(12)
   end
 
   private

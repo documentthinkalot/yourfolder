@@ -1,14 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<div class="info">
+  <p>
+    <p style="margin-bottom:-10px;"><%= @article.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
+    <h1><strong><%= @article.title %></strong></h1>
+    <p style="text-align: right; margin-top:-30px;">
+      <% if user_signed_in? && @article.user == current_user %>
+        <%= link_to edit_article_path(@article) do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 編集<% end %> |
+        <%= link_to @article, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-trash" aria-hidden="true"></i> 削除<% end %>
+      <% end %>
+    </p>
+  </p>
+</div>
 <p>
-  <strong>Title:</strong>
-  <%= @article.title %>
+  <hr>
+  <%= simple_format(@article.body) %>
 </p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>

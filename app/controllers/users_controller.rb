@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user
 
 def show
-  @posts = @user.posts.page(params[:page]).per(12)
+  @posts = @user.posts.order("created_at desc").page(params[:page]).per(12)
 end
 
 private
