@@ -1,0 +1,2 @@
+$("#comment_body").val("");
+$("#comments").html("<%= j (render partial:'/posts/comments', :locals => { comments: @comments }) %>");
