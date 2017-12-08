@@ -93,18 +93,22 @@
             <h3>クイックメニュー</h3>
             <div class="panel panel-default">
               <div class="list-group">
-                <a class="list-group-item" href="#"><i class="fa fa-home" aria-hidden="true"></i> ホーム</a>
+                <a class="list-group-item" href="/"><i class="fa fa-home" aria-hidden="true"></i> ホーム</a>
                 <% if user_signed_in? %>
                 <% else %>
                   <%= link_to new_user_session_path, :style=>"text-decoration:none;", class:"list-group-item" do %><i class="fa fa-sign-in" aria-hidden="true"></i> ログイン<% end %>
                   <%= link_to new_user_registration_path,:style=>"text-decoration:none;", class:"list-group-item" do %><i class="fa fa-user-plus" aria-hidden="true"></i> アカウント作成<% end %>
                 <% end %>
-                <a class="list-group-item" href="#">共有リクエスト</a>
+                <a class="list-group-item" href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i> 共有リクエスト</a>
                 <a class="list-group-item" href="#"><i class="fa fa-search" aria-hidden="true"></i> 探す</a>
-                <%= link_to new_post_path, :style=>"text-decoration:none;", class:"list-group-item" do %><i class="fa fa-upload" aria-hidden="true"></i> アップロード<% end %>
-                <a class="list-group-item" href="#">フィードバック</a>
-                <a class="list-group-item" href="#">クイック添削</a>
-                <a class="list-group-item" href="#">コンタクト</a>
+                <% if user_signed_in? %>
+                  <%= link_to new_post_path, :style=>"text-decoration:none;", class:"list-group-item" do %><i class="fa fa-upload" aria-hidden="true"></i> アップロード<% end %>
+                <% else %>
+                  <%= link_to new_user_session_path, :style=>"text-decoration:none;", class:"list-group-item" do %><i class="fa fa-upload" aria-hidden="true"></i> アップロード<% end %>
+                <% end %>
+                <a class="list-group-item" href="#"><i class="fa fa-commenting-o" aria-hidden="true"></i> フィードバック</a>
+                <a class="list-group-item" href="#"><i class="fa fa-check" aria-hidden="true"></i> クイック添削</a>
+                <a class="list-group-item" href="#"><i class="fa fa-at" aria-hidden="true"></i> コンタクト</a>
               </div>
             </div>
           </div>

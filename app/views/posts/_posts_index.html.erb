@@ -15,6 +15,7 @@
             <% end %>
           </div>
           <h4>
+            <p style="font-size:10pt; margin-bottom: 0;"><%= post.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %></p>
             <p style="height:55px; font-size:10pt;"><%= link_to post do %><strong><%= post.title.truncate(32, omission: '......') %></strong><% end %>
             <br><%= link_to filetype_path(id: post.filetype.id) do %><span class="label label-default"><%= post.filetype.name %></span><% end %>
             </p>

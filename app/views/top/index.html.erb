@@ -16,13 +16,18 @@
     <h3>新着ニュース</h3>
     <div class="row">
     <% @articles.each do |article| %>
-      <div class="col-sm-6 col-md-4">
+      <div class="col-sm-6 col-md-12">
         <div class="thumbnail">
           <div class="caption">
-            <img src="..." alt="image">
-            <h4><strong><%= article.title %></strong></h4>
-            <p><%= article.body %></p>
-            <%= link_to article do %><div class="btn btn-default" role="button">もっと見る &raquo;</div><% end %>
+            <h4>
+              <p style="font-size:10pt; margin-top:-15px;">
+                <%= article.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
+                <br><%= link_to article do %>
+                  <strong><%= article.title.truncate(48, omission: '......') %></strong>
+                <% end %>
+              </p>
+            </h4>
+            <p style="height:30px; font-size: 9pt;"><%= article.body.truncate(103, omission: '......') %></p>
           </div>
         </div>
       </div>
