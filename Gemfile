@@ -52,3 +52,4 @@ end
   gem "carrierwave"
   gem 'libreconv'
   gem 'kaminari'
+  gem 'rmagick'

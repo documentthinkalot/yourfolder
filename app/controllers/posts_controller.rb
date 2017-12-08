@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  require 'RMagick'
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -38,6 +39,15 @@ class PostsController < ApplicationController
         if @post.file?
           unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
             Libreconv.convert(@post.file.path, @post.file.path+".pdf")
+            pdf_path = @post.file.path+".pdf"
+            #変換されたpdfファイルを読み込んで１ページ目のみjpgに変換する処理
+            image = Magick::Image.read(pdf_path)
+            image[0].write(@post.file.path + ".jpg")
+          else
+            pdf_path = @post.file.path
+            # pdfファイルを読み込んで１ページ目のみjpgに変換する処理
+            image = Magick::Image.read(pdf_path)
+            image[0].write(@post.file.path + ".jpg")
           end
         end
         format.html { redirect_to @post, notice: 'アップロードが完了しました。' }
@@ -52,11 +62,17 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    # pdf以外のファイルの場合は変換したpdfファイルを削除する処理
+    # pdf以外のファイルの場合は変換したpdf・jpgファイルを削除する処理
     if @post.file?
       unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
         @pdf_url = @post.file.path+".pdf"
+        @jpg_url = @post.file.path+".jpg"
         File.delete(@pdf_url)
+        File.delete(@jpg_url)
+      else
+    # pdfファイルの場合は変換したjpgファイルのみを削除する処理
+        @jpg_url = @post.file.path+".jpg"
+        File.delete(@jpg_url)
       end
     end
     respond_to do |format|
@@ -65,6 +81,15 @@ class PostsController < ApplicationController
           unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
             Libreconv.convert(@post.file.path, @post.file.path+".pdf")
             @pdf_url = @post.file.url+".pdf"
+            pdf_path = @post.file.path+".pdf"
+            #変換されたpdfファイルを読み込んで１ページ目のみjpgに変換する処理
+            image = Magick::Image.read(pdf_path)
+            image[0].write(@post.file.path + ".jpg")
+          else
+            pdf_path = @post.file.path
+            # pdfファイルを読み込んで１ページ目のみjpgに変換する処理
+            image = Magick::Image.read(pdf_path)
+            image[0].write(@post.file.path + ".jpg")
           end
         end
         format.html { redirect_to @post, notice: '投稿はアップデートされました。' }
@@ -79,11 +104,17 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    # pdf以外のファイルの場合は変換したpdfファイルを削除する処理
     if @post.file?
+      # pdf以外のファイルの場合は変換したpdf・jpgファイルを削除する処理
       unless File.extname(@post.file.path)==".PDF" || File.extname(@post.file.path)==".pdf"
         @pdf_url = @post.file.path+".pdf"
+        @jpg_url = @post.file.path+".jpg"
         File.delete(@pdf_url)
+        File.delete(@jpg_url)
+      # pdfファイルの場合は変換したjpgファイルのみを削除する処理
+      else
+        @jpg_url = @post.file.path+".jpg"
+        File.delete(@jpg_url)
       end
     end
     @post.destroy
