@@ -10,12 +10,12 @@
                 <% end %>
             <% else %>
               <%= link_to post do %>
-                <div style="width:100%; height:180px; border:1px solid #e3e3e3;"><p style="text-align: center; line-height: 180px;">ファイルはありません</p></div>
+                <div style="width:100%; height:180px; border:1px solid #e3e3e3;"><p style="text-align: center; line-height: 180px;font-weight: 900;">TEXT ONLY</p></div>
               <% end %>
             <% end %>
           </div>
           <h4>
-            <p style="font-size:10pt; margin-bottom: 0;"><%= post.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %></p>
+            <p style="font-size:10pt; margin-bottom: 0;color:gray;"><%= post.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %></p>
             <p style="height:55px; font-size:10pt;"><%= link_to post do %><strong><%= post.title.truncate(32, omission: '......') %></strong><% end %>
             <br><%= link_to filetype_path(id: post.filetype.id) do %><span class="label label-default"><%= post.filetype.name %></span><% end %>
             </p>

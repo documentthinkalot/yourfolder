@@ -8,4 +8,11 @@ class Post < ActiveRecord::Base
   has_many :comments
   validates_presence_of :user_id, :title, :body, :category_id, :filetype_id, :filetype2_id
   mount_uploader :file, FileUploader
+  def self.search(search) #self.でクラスメソッドとしている
+    if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
+      Post.joins(:user).joins(:category).where(['body LIKE ? or title LIKE ? or nickname LIKE ? or name LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+    else
+      Post.all #全て表示。
+    end
+  end
 end
