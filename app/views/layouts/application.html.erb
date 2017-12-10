@@ -10,7 +10,6 @@
 
 </head>
  <body>
-
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -30,11 +29,7 @@
               <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/">共有リクエスト</a></li>
-                <li><a href="/">フィードバック</a></li>
-                <li><a href="/">Fee Free コンサルリクエスト</a></li>
-                <li><a href="/">マイ上司・マイ部下</a></li>
-                <li><a href="/">クイック添削</a></li>
-                <li><a href="/">コンタクト</a></li>
+                <li><a href="/"><i class="fa fa-at" aria-hidden="true"></i> コンタクト</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -101,15 +96,13 @@
                   <%= link_to new_user_session_path, :style=>"text-decoration:none;", class:"list-group-item" do %><i class="fa fa-sign-in" aria-hidden="true"></i> ログイン<% end %>
                   <%= link_to new_user_registration_path,:style=>"text-decoration:none;", class:"list-group-item" do %><i class="fa fa-user-plus" aria-hidden="true"></i> アカウント作成<% end %>
                 <% end %>
-                <a class="list-group-item" href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i> 共有リクエスト</a>
                 <a class="list-group-item" href="#"><i class="fa fa-search" aria-hidden="true"></i> アイテムを探す</a>
                 <% if user_signed_in? %>
                   <%= link_to new_post_path, :style=>"text-decoration:none;", class:"list-group-item" do %><i class="fa fa-upload" aria-hidden="true"></i> アップロード<% end %>
                 <% else %>
                   <%= link_to new_user_session_path, :style=>"text-decoration:none;", class:"list-group-item" do %><i class="fa fa-upload" aria-hidden="true"></i> アップロード<% end %>
                 <% end %>
-                <a class="list-group-item" href="#"><i class="fa fa-commenting-o" aria-hidden="true"></i> フィードバック</a>
-                <a class="list-group-item" href="#"><i class="fa fa-check" aria-hidden="true"></i> クイック添削</a>
+                <a class="list-group-item" href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i> 共有リクエスト</a>
                 <a class="list-group-item" href="#"><i class="fa fa-at" aria-hidden="true"></i> コンタクト</a>
               </div>
             </div>

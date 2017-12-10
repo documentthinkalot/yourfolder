@@ -49,7 +49,7 @@ end
   gem 'devise'
   gem 'devise-bootstrap-views'
   gem 'mechanize'
-  gem "carrierwave"
+  gem 'carrierwave'
   gem 'libreconv'
   gem 'kaminari'
   gem 'rmagick'
