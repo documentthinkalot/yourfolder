@@ -63,7 +63,8 @@
               <ul class="dropdown-menu">
                 <li><a href="/">アカウント情報</a></li>
                 <li><%= link_to user_path(current_user) do %>アップロードしたアイテム<% end %></li>
-                <li><a href="/">お気に入りの記事</a></li>
+                <li><%= link_to likes_user_url(current_user) do %>お気に入りのアイテム<% end %>
+                </li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">設定</li>
                 <li><%= link_to edit_user_registration_path,:style=>"text-decoration:none;" do %>アカウント情報の変更<% end %></li>

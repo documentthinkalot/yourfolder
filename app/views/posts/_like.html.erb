@@ -1,0 +1,12 @@
+<div class="like">
+  <div id="like">
+  <% if user_signed_in? %>
+    <% if current_user_like %>
+      <%= render partial: '/posts/dis_like', locals: {id: @post.id} %>
+    <% else %>
+      <%= render partial: '/posts/do_like', locals: {post_id: @post.id} %>
+    <% end %>
+  <% end %>
+  </div>
+  <div class="likes_count"><%= @likes_count %></div>
+</div>

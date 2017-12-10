@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     @post = Post.includes(:user).find(params[:id])
     @comments = @post.comments.includes(:user).all
     @comment  = @post.comments.build(user_id: current_user.id) if current_user
+    @likes_count = Like.where(post_id: @post.id).count
     # 添付ファイルがある場合のみpdf_urlを設定する処理
     if @post.file?
       @pdf_url = @post.file.url+".pdf"

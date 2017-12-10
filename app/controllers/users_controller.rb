@@ -5,6 +5,10 @@ def show
   @posts = @user.posts.order("created_at desc").page(params[:page]).per(12)
 end
 
+def likes
+  @posts = @user.like_posts.order("created_at desc").page(params[:page]).per(12)
+end
+
 private
   def set_user
     @user = User.find(params[:id])

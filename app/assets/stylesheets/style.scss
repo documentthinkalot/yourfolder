@@ -70,3 +70,58 @@ p{
 a.btn:visited {
   color:white;
 }
+
+.fa-heart:hover {
+  background-color: white;
+  color:gray;
+}
+
+.do-like {
+  color:gray;
+}
+
+.do-like:hover {
+  background-color: white;
+  color:#ca493c;
+}
+
+.like {
+  margin: 0 0 0 0;
+  width:25px;
+}
+
+.likes_count {
+ text-align: center;
+ color:gray;
+}
+
+.likes_count_index {
+ // text-align: center;
+ // margin:0 0 0 1.5px;
+ // float: right;
+ // color:gray;
+}
+
+.fa-gray {
+  color:#e3e3e3;
+}
+
+.fa-gray:hover {
+  color:#fff;
+}
+
+.fa-red {
+  color:#ca493c;
+}
+
+.red_icon {
+  color:#ca493c;
+}
+
+.red_icon:hover {
+  color:#ca493c;
+}
+
+.download-btn {
+  margin: -10px 0 -75px 0;
+}
