@@ -2,4 +2,4 @@
 
 <h3><%= @filetype2.filetype.name %> > <%= @filetype2.filetype2_name %> のアイテム</h3>
 
-<%= render partial: '/posts/posts_index', locals: {posts: @posts} %>
+<%= render partial: '/posts/posts_index', locals: {posts: @posts, path: filetype2_path} %>
