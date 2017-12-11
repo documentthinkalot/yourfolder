@@ -2,4 +2,4 @@
 
 <h3><%= @user.nickname %>さんのお気に入りのアイテム</h3>
 
-<%= render partial: 'posts/posts_index', locals: {posts: @posts} %>
+<%= render partial: 'posts/posts_index', locals: {posts: @posts, path: likes_user_path} %>

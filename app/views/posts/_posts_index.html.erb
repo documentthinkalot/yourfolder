@@ -1,6 +1,6 @@
 <%= form_tag path, :method => 'get' do %>
   <div class="form-group sort">
-    <%= select_tag 'sort', options_for_select([["新しい順", "created_at_desc"], ["古い順", "created_at_asc"], ["人気順", "likes_desc"], ["コメントの多い順", "comments_desc"]]), { autofocus: 'true', onChange:"this.form.submit()", prompt:"選択してください", class: 'form-control'} %>
+    <%= select_tag 'sort', options_for_select([["新しい順", "created_at_desc"], ["古い順", "created_at_asc"], ["人気順", "likes_desc"], ["コメントの多い順", "comments_desc"]]), { autofocus: 'true', onChange:"this.form.submit()", prompt:"選択してください", class: 'form-control' } %>
   </div>
 <% end %>
 <div class="row">

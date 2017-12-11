@@ -2,4 +2,4 @@
 
 <h3><%= @user.nickname %>さんのアップロードしたアイテム</h3>
 
-<%= render partial: '/posts/posts_index', locals: {posts: @posts} %>
+<%= render partial: '/posts/posts_index', locals: {posts: @posts, path: user_path} %>
