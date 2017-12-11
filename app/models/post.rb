@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
   mount_uploader :file, FileUploader
   def self.search(search)
     if search
-      Post.joins(:user).joins(:category).where(['body LIKE ? or title LIKE ? or nickname LIKE ? or name LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+      Post.joins(:user).joins(:category).where(['posts.body LIKE ? or title LIKE ? or nickname LIKE ? or name LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
     else
       Post.all #全て表示。
     end

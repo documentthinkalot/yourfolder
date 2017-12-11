@@ -5,8 +5,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.sort(params[:sort]).search(params[:search]).all.page(params[:page]).per(12)
-
+    search = params[:search]
+    @posts = Post.search(params[:search]).sort(params[:sort]).all.page(params[:page]).per(12)
   end
 
   # GET /posts/1
