@@ -53,3 +53,4 @@ end
   gem 'libreconv'
   gem 'kaminari'
   gem 'rmagick'
+  gem 'administrate'

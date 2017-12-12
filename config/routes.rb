@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :articles
+    resources :categories
+    resources :comments
+    resources :filetypes
+    resources :filetype2s
+    resources :industries
+    resources :likes
+    resources :occupations
+    resources :places
+    resources :posts
+    resources :sub2categories
+    resources :subcategories
+
+    root to: "users#index"
+  end
+
   resources :tops, only: :index
   resources :posts do
     resources :likes, only: [:create, :destroy]
