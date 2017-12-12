@@ -9,6 +9,9 @@ def likes
   @posts = @user.like_posts.sort(params[:sort]).page(params[:page]).per(12)
 end
 
+def info
+end
+
 private
   def set_user
     @user = User.find(params[:id])

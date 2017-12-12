@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+    <% if user_signed_in? && @user==current_user %>
+      <%= link_to edit_user_registration_path,:style=>"text-decoration:none;" do %>アカウント情報の変更<% end %>
+    <% end %>
+   <br>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title"><i class="fa fa-user-circle-o" aria-hidden="true"></i> アカウント情報</h4>
+      </div>
+      <div class="panel-body">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>ユーザー名：</td>
+                <td><%= @user.nickname %></td>
+              </tr>
+              <!-- 自分以外に対して非公開の情報 -->
+              <% if user_signed_in? && @user==current_user %>
+                <tr>
+                  <td>Eメール： <span class="label label-default">非公開</span></td>
+                  <td><%= @user.email %></td>
+                </tr>
+                <tr>
+                  <td>性別： <span class="label label-default">非公開</span></td>
+                  <td><%= @user.sex %></td>
+                </tr>
+                <tr>
+                  <td>年齢： <span class="label label-default">非公開</span></td>
+                  <td><%= @user.age %></td>
+                </tr>
+                <tr>
+                  <td>勤め先の場所： <span class="label label-default">非公開</span></td>
+                  <td><%= @user.place.name %></td>
+                </tr>
+                <tr>
+                  <td>会社名： <span class="label label-default">非公開</span></td>
+                  <td><%= @user.company %></td>
+                </tr>
+              <% end %>
+              <tr>
+                <td>業種：</td>
+                <td><%= @user.industry.name %></td>
+              </tr>
+              <tr>
+                <td>職種：</td>
+                <td><%= @user.occupation.name %></td>
+              </tr>
+              <% if user_signed_in? && @user==current_user %>
+                <tr>
+                  <td>役職： <span class="label label-default">非公開</span></td>
+                  <td><%= @user.position %></td>
+                </tr>
+                <tr>
+                  <td>従業員の数：</td>
+                  <td><%= @user.number_of_employees %></td>
+                </tr>
+              <% end %>
+              <tr>
+                <td>アップロード数： <%= link_to @user do %><span class="label label-default">もっと見る</span><% end %></td>
+                <td><%= @user.posts.length %></td>
+              </tr>
+              <tr>
+                <td>お気に入りのアイテム数： <%= link_to likes_user_path do %><span class="label label-default">もっと見る</span><% end %></td>
+                <td><%= @user.likes.length %></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>
