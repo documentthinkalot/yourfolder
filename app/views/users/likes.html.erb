@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h3><%= @user.nickname %>さんのお気に入りのアイテム</h3>
+<h1><i class="fa fa-gratipay" aria-hidden="true"></i> <%= @user.nickname %>さんのお気に入りのアイテム</h1>
 
 <%= render partial: 'posts/posts_index', locals: {posts: @posts, path: likes_user_path} %>

@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h3><%= @filetype2.filetype.name %> > <%= @filetype2.filetype2_name %> のアイテム</h3>
+<h1><i class="fa fa-th" aria-hidden="true"></i> <%= @filetype2.filetype.name %> > <%= @filetype2.filetype2_name %> のアイテム</h1>
 
 <%= render partial: '/posts/posts_index', locals: {posts: @posts, path: filetype2_path} %>

@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h3><%= @filetype.name %> のアイテム
+<h1><i class="fa fa-th" aria-hidden="true"></i> <%= @filetype.name %> のアイテム
 <br><% @filetype.filetype2s.each do |filetype2| %>
-<%= link_to filetype2_path(id: filetype2.id) do %><span class="label label-default"><%= filetype2.filetype2_name %></span><% end %>
+<%= link_to filetype2_path(id: filetype2.id) do %><span class="label label-default" style="font-size:10pt;"><%= filetype2.filetype2_name %></span><% end %>
 <% end %>
-</h3>
+</h1>
 
 <%= render partial: '/posts/posts_index', locals: {posts: @posts, path: filetype_path} %>

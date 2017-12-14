@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h3><%= link_to info_user_path do %><%= @user.nickname %><% end %>さんのアップロードしたアイテム</h3>
+<h1><i class="fa fa-user-circle-o" aria-hidden="true"></i> <%= link_to info_user_path do %><%= @user.nickname %><% end %>さんのアップロードしたアイテム <%= link_to info_user_path  do %><span class="label label-default" style="font-size:10pt;">もっと見る</span><% end %></h1>
 
 <%= render partial: '/posts/posts_index', locals: {posts: @posts, path: user_path} %>
