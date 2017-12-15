@@ -66,6 +66,10 @@
                 <td>お気に入りのアイテム数： <%= link_to likes_user_path do %><span class="label label-default">もっと見る</span><% end %></td>
                 <td><%= @user.likes.length %></td>
               </tr>
+              <tr>
+                <td>自己紹介：</td>
+                <td><%= @user.biography %></td>
+              </tr>
             </tbody>
           </table>
       </div>
