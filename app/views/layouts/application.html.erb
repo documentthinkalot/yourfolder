@@ -28,7 +28,7 @@
             <li class="dropdown">
               <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/">共有リクエスト</a></li>
+                <li><%= link_to requests_path do %><i class="fa fa-share-square-o" aria-hidden="true"></i> 共有リクエスト<% end %></li>
                 <li><a href="/"><i class="fa fa-at" aria-hidden="true"></i> コンタクト</a></li>
               </ul>
             </li>
@@ -103,7 +103,7 @@
                 <% else %>
                   <%= link_to new_user_session_path, :style=>"text-decoration:none;", class:"list-group-item" do %><i class="fa fa-upload" aria-hidden="true"></i> アップロード<% end %>
                 <% end %>
-                <a class="list-group-item" href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i> 共有リクエスト</a>
+                <%= link_to requests_path, class:"list-group-item" do %><i class="fa fa-share-square-o" aria-hidden="true"></i> 共有リクエスト<% end %>
                 <a class="list-group-item" href="#"><i class="fa fa-at" aria-hidden="true"></i> コンタクト</a>
               </div>
             </div>
