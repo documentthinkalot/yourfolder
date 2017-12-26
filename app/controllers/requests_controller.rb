@@ -30,7 +30,7 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
+        format.html { redirect_to requests_category_path(id: @request.category_id), notice: 'Request was successfully created.' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
