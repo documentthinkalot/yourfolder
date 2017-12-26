@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :requests
   resources :responses
   resources :users
@@ -25,7 +26,6 @@ Rails.application.routes.draw do
     end
   end
   resources :comments
-  devise_for :users
   resources :users do
     member do
       get 'likes'

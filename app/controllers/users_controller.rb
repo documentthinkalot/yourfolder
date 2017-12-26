@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :likes, :info]
+  before_action :set_user
 
 def show
   @posts = @user.posts.sort(params[:sort]).page(params[:page]).per(12)
