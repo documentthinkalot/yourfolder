@@ -13,7 +13,7 @@
                 <p style="font-size:10pt; margin-top:-15px;">
                   <strong><%= request.title %></strong>
                   by <%= link_to user_path(request.user) do %><%= request.user.nickname %><% end %>
-                  <%= request.created_at %>
+                  <%= request.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
                 </p>
               </h4>
               <p style="height:30px; font-size: 9pt;"><%= request.body %></p>
