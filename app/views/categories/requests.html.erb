@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+<div>
+  <h1><i class="fa fa-share-square-o fa-lg" aria-hidden="true"></i> <%= @category.name %> の共有リクエスト</h1>
+  <div class="row">
+  <% @requests.each do |request| %>
+    <div class="col-sm-6 col-md-12">
+      <div class="thumbnail">
+        <div class="caption">
+          <h4>
+            <p style="font-size:10pt; margin-top:-15px;">
+              <strong><%= request.title %></strong>
+              by <%= link_to user_path(request.user) do %><%= request.user.nickname %><% end %>
+              <%= request.created_at %>
+            </p>
+          </h4>
+          <p style="height:30px; font-size: 9pt;"><%= request.body %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-11" style="float:right;">
+      <% request.responses.each do |response| %>
+        <% if request.responses.exists? %>
+          <div class="thumbnail">
+            <div class="caption">
+              <h4>
+                <p style="font-size:10pt; margin-top:-15px;">
+                  <strong>Re: <%= request.title %></strong>
+                  by <%= link_to user_path(response.user) do %><%= response.user.nickname %><% end %>
+                  <%= response.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
+                </p>
+              </h4>
+              <p style="height:30px; font-size: 9pt;"><%= response.body %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= render partial: '/responses/form', locals: {response: @response, request: request} %>
+      <% else %>
+        <%= link_to "ログインして返信を書く", new_user_session_path, class: 'post' %>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<hr>
+
+<% if user_signed_in? %>
+    <%= render '/requests/form' %>
+  <% else %>
+    <%= link_to "ログインして共有リクエストする", new_user_session_path, class: 'post' %>
+<% end %>

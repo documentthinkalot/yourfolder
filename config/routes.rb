@@ -33,7 +33,11 @@ Rails.application.routes.draw do
     end
   end
   resources :articles
-  resources :categories, only: :show
+  resources :categories do
+    member do
+      get 'requests'
+    end
+  end
   resources :filetypes, only: :show
   resources :filetype2s, only: :show
   root 'top#index'

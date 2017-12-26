@@ -2,4 +2,6 @@
 
 <h1><i class="fa fa-th" aria-hidden="true"></i> カテゴリ"<%= @category.name %>"アイテム</h1>
 
-<%= render partial: '/posts/posts_index', locals: {posts: @posts} %>
+<%= link_to requests_category_path, style:"margin: 5px;", class:"btn btn-primary btn-md download-btn" do %><i class="fa fa-share-square-o" aria-hidden="true"></i> 共有リクエスト<% end %>
+
+<%= render partial: '/posts/posts_index', locals: {posts: @posts, path: category_path} %>

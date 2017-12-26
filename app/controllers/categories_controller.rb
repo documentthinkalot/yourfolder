@@ -1,7 +1,13 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show]
+  before_action :set_category, only: [:show, :requests]
   def show
     @posts = @category.posts.order("created_at desc").page(params[:page]).per(12)
+  end
+
+  def requests
+    @requests = @category.requests
+    @request  = @requests.build(user_id: current_user.id) if current_user
+    @response = Response.all.build(user_id: current_user.id) if current_user
   end
 
   private

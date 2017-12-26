@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div>
   <h1><i class="fa fa-share-square-o fa-lg" aria-hidden="true"></i> 共有リクエスト</h1>
-  <h3>カテゴリ名</h3>
   <div class="row">
   <% @requests.each do |request| %>
     <div class="col-sm-6 col-md-12">
@@ -9,7 +8,9 @@
         <div class="caption">
           <h4>
             <p style="font-size:10pt; margin-top:-15px;">
-              <%= request.user.nickname %> <%= request.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
+              <strong><%= request.title %></strong>
+              by <%= link_to user_path(request.user) do %><%= request.user.nickname %><% end %>
+              <%= request.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
             </p>
           </h4>
           <p style="height:30px; font-size: 9pt;"><%= request.body %></p>
@@ -23,7 +24,9 @@
             <div class="caption">
               <h4>
                 <p style="font-size:10pt; margin-top:-15px;">
-                  <%= response.user.nickname %> <%= response.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
+                  <strong>Re: <%= request.title %></strong>
+                  by <%= link_to user_path(response.user) do %><%= response.user.nickname %><% end %>
+                  <%= response.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
                 </p>
               </h4>
               <p style="height:30px; font-size: 9pt;"><%= response.body %></p>

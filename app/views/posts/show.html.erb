@@ -8,7 +8,7 @@
           <p style="margin-bottom:-10px;"><%= @post.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
           <h1><strong><%= @post.title %></strong> by <%= link_to user_path(@post.user) do %><%= @post.user.nickname %><% end %></h1>
           <p><i class="fa fa-file-o" aria-hidden="true"></i> <%= link_to filetype_path(@post.filetype) do %><%= @post.filetype.name %><% end %> > <%= link_to filetype2_path(@post.filetype2) do %><%= @post.filetype2.filetype2_name %><% end %></p>
-          <p><i class="fa fa-info-circle" aria-hidden="true"></i> <%= @post.category.name %></p>
+          <p><i class="fa fa-info-circle" aria-hidden="true"></i> <%= link_to category_path(@post.category) do %><%= @post.category.name %></p><% end %>
           <% if user_signed_in? && @post.user == current_user %>
             <p style="color:red;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> <%= current_user.nickname %>さんがアップロードしたアイテムです</p>
             <p style="text-align: right">
@@ -42,7 +42,7 @@
         <p style="margin-bottom:-10px;"><%= @post.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
         <h1><strong><%= @post.title %></strong> by <%= link_to user_path(@post.user) do %><%= @post.user.nickname %><% end %></h1>
         <p><i class="fa fa-file-o" aria-hidden="true"></i> <%= link_to filetype_path(@post.filetype) do %><%= @post.filetype.name %><% end %> > <%= link_to filetype2_path(@post.filetype2) do %><%= @post.filetype2.filetype2_name %><% end %></p>
-        <p><i class="fa fa-info-circle" aria-hidden="true"></i> <%= @post.category.name %></p>
+        <p><i class="fa fa-info-circle" aria-hidden="true"></i> <%= link_to category_path(@post.category) do %><%= @post.category.name %></p><% end %>
         <% if user_signed_in? && @post.user == current_user %>
           <p style="color:red;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> <%= current_user.nickname %>さんがアップロードしたアイテムです</p>
           <p style="text-align: right; margin-top:-30px;">
