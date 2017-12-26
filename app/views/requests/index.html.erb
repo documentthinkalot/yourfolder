@@ -43,11 +43,3 @@
   <% end %>
   </div>
 </div>
-
-<hr>
-
-<% if user_signed_in? %>
-    <%= render '/requests/form' %>
-  <% else %>
-    <%= link_to "ログインして共有リクエストする", new_user_session_path, class: 'post' %>
-<% end %>

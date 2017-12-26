@@ -12,6 +12,8 @@
   <% end %>
 
   <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <%= f.hidden_field :category_id, value: @category.id %>
   <div class="field">
     <%= f.label :title, 'タイトル' %><br>
     <%= f.text_field :title, class:"form-control" %>
