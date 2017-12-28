@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :posts do
+    resources :likes, only: [:create, :destroy]
+    collection do
+      get 'get_subcategory'
+      get 'get_sub2category'
+      get 'get_filetype2'
+    end
+  end
   resources :requests
   resources :responses
   resources :users
@@ -17,14 +25,6 @@ Rails.application.routes.draw do
   resources :subcategories
   resources :tweets, only: :index
   resources :tops, only: :index
-  resources :posts do
-    resources :likes, only: [:create, :destroy]
-    collection do
-      get 'get_subcategory'
-      get 'get_sub2category'
-      get 'get_filetype2'
-    end
-  end
   resources :comments
   resources :users do
     member do
