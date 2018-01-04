@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1><i class="fa fa-th" aria-hidden="true"></i>
+  <%= @sub5category.sub4category.sub3category.sub2category.subcategory.category.name %>
+  > <%= @sub5category.sub4category.sub3category.sub2category.subcategory.subcategory_name %>
+  > <%= @sub5category.sub4category.sub3category.sub2category.sub2category_name %>
+  > <%= @sub5category.sub4category.sub3category.sub3category_name %>
+  > <%= @sub5category.sub4category.sub4category_name %>
+  > <%= @sub5category.sub5category_name %> のアイテム
+</h1>
+
+<%= render partial: '/posts/posts_index', locals: {posts: @posts, path: sub5category_path} %>

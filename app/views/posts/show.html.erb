@@ -8,8 +8,26 @@
           <p style="margin-bottom:-10px;"><%= @post.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
           <h1><strong><%= @post.title %></strong> by <%= link_to user_path(@post.user) do %><%= @post.user.nickname %><% end %></h1>
           <p><i class="fa fa-file-o" aria-hidden="true"></i> <%= link_to filetype_path(@post.filetype) do %><%= @post.filetype.name %><% end %> > <%= link_to filetype2_path(@post.filetype2) do %><%= @post.filetype2.filetype2_name %><% end %></p>
-          <p><i class="fa fa-info-circle" aria-hidden="true"></i> <%= link_to category_path(@post.category) do %><%= @post.category.name %></p><% end %>
-          > <%= link_to subcategory_path(@post.subcategory) do %><%= @post.subcategory.subcategory_name %></p><% end %>
+          <p><i class="fa fa-info-circle" aria-hidden="true"></i> <%= link_to category_path(@post.category) do %><%= @post.category.name %><% end %>
+          <% if @post.subcategory_id? %>
+            > <%= link_to subcategory_path(@post.subcategory) do %><%= @post.subcategory.subcategory_name %><% end %>
+          <% end %>
+          <% if @post.sub2category_id? %>
+            > <%= link_to sub2category_path(@post.sub2category) do %><%= @post.sub2category.sub2category_name %><% end %>
+          <% end %>
+          <% if @post.sub3category_id? %>
+            > <%= link_to sub3category_path(@post.sub3category) do %><%= @post.sub3category.sub3category_name %><% end %>
+          <% end %>
+          <% if @post.sub4category_id? %>
+            > <%= link_to sub4category_path(@post.sub4category) do %><%= @post.sub4category.sub4category_name %><% end %>
+          <% end %>
+          <% if @post.sub5category_id? %>
+            > <%= link_to sub5category_path(@post.sub5category) do %><%= @post.sub5category.sub5category_name %><% end %>
+          <% end %>
+          <% if @post.sub6category_id? %>
+            > <%= link_to sub6category_path(@post.sub6category) do %><%= @post.sub6category.sub6category_name %><% end %>
+          <% end %>
+          </p>
           <% if user_signed_in? && @post.user == current_user %>
             <p style="color:red;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> <%= current_user.nickname %>さんがアップロードしたアイテムです</p>
             <p style="text-align: right">
@@ -44,12 +62,24 @@
         <h1><strong><%= @post.title %></strong> by <%= link_to user_path(@post.user) do %><%= @post.user.nickname %><% end %></h1>
         <p><i class="fa fa-file-o" aria-hidden="true"></i> <%= link_to filetype_path(@post.filetype) do %><%= @post.filetype.name %><% end %> > <%= link_to filetype2_path(@post.filetype2) do %><%= @post.filetype2.filetype2_name %><% end %></p>
         <p><i class="fa fa-info-circle" aria-hidden="true"></i> <%= link_to category_path(@post.category) do %><%= @post.category.name %><% end %>
-        > <%= link_to subcategory_path(@post.subcategory) do %><%= @post.subcategory.subcategory_name %><% end %>
-        > <%= link_to sub2category_path(@post.sub2category) do %><%= @post.sub2category.sub2category_name %><% end %>
-        > <%= link_to sub3category_path(@post.sub3category) do %><%= @post.sub3category.sub3category_name %><% end %>
-        > <%= link_to sub4category_path(@post.sub4category) do %><%= @post.sub4category.sub4category_name %><% end %>
-        > <%= link_to sub5category_path(@post.sub5category) do %><%= @post.sub5category.sub5category_name %><% end %>
-        > <%= link_to sub6category_path(@post.sub6category) do %><%= @post.sub6category.sub6category_name %><% end %>
+        <% if @post.subcategory_id? %>
+          > <%= link_to subcategory_path(@post.subcategory) do %><%= @post.subcategory.subcategory_name %><% end %>
+        <% end %>
+        <% if @post.sub2category_id? %>
+          > <%= link_to sub2category_path(@post.sub2category) do %><%= @post.sub2category.sub2category_name %><% end %>
+        <% end %>
+        <% if @post.sub3category_id? %>
+          > <%= link_to sub3category_path(@post.sub3category) do %><%= @post.sub3category.sub3category_name %><% end %>
+        <% end %>
+        <% if @post.sub4category_id? %>
+          > <%= link_to sub4category_path(@post.sub4category) do %><%= @post.sub4category.sub4category_name %><% end %>
+        <% end %>
+        <% if @post.sub5category_id? %>
+          > <%= link_to sub5category_path(@post.sub5category) do %><%= @post.sub5category.sub5category_name %><% end %>
+        <% end %>
+        <% if @post.sub6category_id? %>
+          > <%= link_to sub6category_path(@post.sub6category) do %><%= @post.sub6category.sub6category_name %><% end %>
+        <% end %>
         </p>
         <% if user_signed_in? && @post.user == current_user %>
           <p style="color:red;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> <%= current_user.nickname %>さんがアップロードしたアイテムです</p>

@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h1><i class="fa fa-th" aria-hidden="true"></i>
+  <%= @sub2category.subcategory.category.name %>
+  > <%= @sub2category.subcategory.subcategory_name %>
+  > <%= @sub2category.sub2category_name %> のアイテム
+</h1>
+
+<%= render partial: '/posts/posts_index', locals: {posts: @posts, path: sub2category_path} %>
