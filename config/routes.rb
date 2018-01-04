@@ -25,8 +25,12 @@ Rails.application.routes.draw do
   resources :occupations
   resources :places
   resources :posts
-  resources :sub2categories
   resources :subcategories
+  resources :sub2categories
+  resources :sub3categories
+  resources :sub4categories
+  resources :sub5categories
+  resources :sub6categories
   resources :tweets, only: :index
   resources :tops, only: :index
   resources :comments
