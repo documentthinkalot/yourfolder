@@ -1,0 +1,3 @@
+<% if Sub6category.where(sub5category_id: sub5category_id).exists? %>
+  <%= collection_select :post, :sub6category_id, Sub6category.where(sub5category_id: sub5category_id), :id, :sub6category_name, {prompt:"選択してください"}, {class: 'form-control'} %>
+<% end %>

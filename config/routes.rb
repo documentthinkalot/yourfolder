@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     collection do
       get 'get_subcategory'
       get 'get_sub2category'
+      get 'get_sub3category'
+      get 'get_sub4category'
+      get 'get_sub5category'
+      get 'get_sub6category'
       get 'get_filetype2'
     end
   end

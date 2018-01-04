@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171226082746) do
+ActiveRecord::Schema.define(version: 20180104024836) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -85,6 +85,10 @@ ActiveRecord::Schema.define(version: 20171226082746) do
     t.integer  "filetype2_id",    limit: 4
     t.integer  "sub2category_id", limit: 4
     t.string   "file",            limit: 255
+    t.integer  "sub3category_id", limit: 4
+    t.integer  "sub4category_id", limit: 4
+    t.integer  "sub5category_id", limit: 4
+    t.integer  "sub6category_id", limit: 4
   end
 
   create_table "requests", force: :cascade do |t|
@@ -109,6 +113,34 @@ ActiveRecord::Schema.define(version: 20171226082746) do
     t.datetime "updated_at",                    null: false
     t.string   "sub2category_name", limit: 255
     t.integer  "subcategory_id",    limit: 4
+  end
+
+  create_table "sub3categories", force: :cascade do |t|
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "sub2category_id",   limit: 4
+    t.string   "sub3category_name", limit: 255
+  end
+
+  create_table "sub4categories", force: :cascade do |t|
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "sub3category_id",   limit: 4
+    t.string   "sub4category_name", limit: 255
+  end
+
+  create_table "sub5categories", force: :cascade do |t|
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "sub4category_id",   limit: 4
+    t.string   "sub5category_name", limit: 255
+  end
+
+  create_table "sub6categories", force: :cascade do |t|
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "sub5category_id",   limit: 4
+    t.string   "sub6category_name", limit: 255
   end
 
   create_table "subcategories", force: :cascade do |t|

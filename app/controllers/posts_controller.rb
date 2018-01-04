@@ -133,6 +133,22 @@ class PostsController < ApplicationController
     render partial: 'select_sub2category', locals: {subcategory_id: params[:subcategory_id]}
   end
 
+  def get_sub3category
+    render partial: 'select_sub3category', locals: {sub2category_id: params[:sub2category_id]}
+  end
+
+  def get_sub4category
+    render partial: 'select_sub4category', locals: {sub3category_id: params[:sub3category_id]}
+  end
+
+  def get_sub5category
+    render partial: 'select_sub5category', locals: {sub4category_id: params[:sub4category_id]}
+  end
+
+  def get_sub6category
+    render partial: 'select_sub6category', locals: {sub5category_id: params[:sub5category_id]}
+  end
+
   def get_filetype2
     render partial: 'select_filetype2', locals: {filetype_id: params[:filetype_id]}
   end
@@ -145,6 +161,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :category_id, :user_id, :filetype_id, :subcategory_id, :sub2category_id,:filetype2_id, :file, :file_cache, :remove_file)
+      params.require(:post).permit(:title, :body, :category_id, :user_id, :filetype_id, :subcategory_id, :sub2category_id, :sub3category_id, :sub4category_id, :sub5category_id, :sub6category_id, :filetype2_id, :file, :file_cache, :remove_file)
     end
 end
