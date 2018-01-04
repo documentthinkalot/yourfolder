@@ -88,25 +88,45 @@
       <div class="main">
         <div class="row">
           <div class="left_content col-lg-2">
-            <h3>クイックメニュー</h3>
-            <div class="panel panel-default">
-              <div class="list-group">
-                <a class="list-group-item" href="/"><i class="fa fa-home" aria-hidden="true"></i> ホーム</a>
-                <% if user_signed_in? %>
-                <% else %>
-                  <%= link_to new_user_session_path, :style=>"text-decoration:none;", class:"list-group-item" do %><i class="fa fa-sign-in" aria-hidden="true"></i> ログイン<% end %>
-                  <%= link_to new_user_registration_path,:style=>"text-decoration:none;", class:"list-group-item" do %><i class="fa fa-user-plus" aria-hidden="true"></i> アカウント作成<% end %>
-                <% end %>
-                <a class="list-group-item" href="#"><i class="fa fa-search" aria-hidden="true"></i> アイテムを探す</a>
-                <% if user_signed_in? %>
-                  <%= link_to new_post_path, :style=>"text-decoration:none;", class:"list-group-item" do %><i class="fa fa-upload" aria-hidden="true"></i> アップロード<% end %>
-                <% else %>
-                  <%= link_to new_user_session_path, :style=>"text-decoration:none;", class:"list-group-item" do %><i class="fa fa-upload" aria-hidden="true"></i> アップロード<% end %>
-                <% end %>
-                <%= link_to requests_path, class:"list-group-item" do %><i class="fa fa-share-square-o" aria-hidden="true"></i> 共有リクエスト<% end %>
-                <a class="list-group-item" href="#"><i class="fa fa-at" aria-hidden="true"></i> コンタクト</a>
-              </div>
-            </div>
+            <h3>カテゴリ一覧</h3>
+            <!-- 暫定的な実装です、雑ですみません……。 -->
+            <ul>
+              <% Category.all.each do |category| %>
+                <details>
+                  <summary style="margin-left: -30px;"><%= link_to category.name, category,:style=>"text-decoration:none;" %></summary>
+                  <% category.subcategories.each do |subcategory| %>
+                    <details>
+                      <summary style="margin-left: -15px;"><%= link_to subcategory.subcategory_name, subcategory,:style=>"text-decoration:none;" %></summary>
+                      <% subcategory.sub2category.each do |sub2category| %>
+                        <details>
+                          <summary style="margin-left: 0px;"><%= link_to sub2category.sub2category_name, sub2category,:style=>"text-decoration:none;" %></summary>
+                            <% sub2category.sub3category.each do |sub3category| %>
+                              <details>
+                                <summary style="margin-left: 15px;"><%= link_to sub3category.sub3category_name, sub3category,:style=>"text-decoration:none;" %></summary>
+                                <% sub3category.sub4category.each do |sub4category| %>
+                                  <details>
+                                    <summary style="margin-left: 30px;"><%= link_to sub4category.sub4category_name, sub4category,:style=>"text-decoration:none;" %></summary>
+                                      <% sub4category.sub5category.each do |sub5category| %>
+                                        <details>
+                                          <summary style="margin-left: 45px;"><%= link_to sub5category.sub5category_name, sub5category,:style=>"text-decoration:none;" %></summary>
+                                          <% sub5category.sub6category.each do |sub6category| %>
+                                            <details>
+                                              <summary style="margin-left: 60px;"><%= link_to sub6category.sub6category_name, sub6category,:style=>"text-decoration:none;" %></summary>
+                                            </details>
+                                          <% end %>
+                                        </details>
+                                      <% end %>
+                                  </details>
+                                <% end %>
+                              </details>
+                            <% end %>
+                        </details>
+                      <% end %>
+                    </details>
+                  <% end %>
+                </details>
+              <% end %>
+            </ul>
           </div>
           <div class="right_content col-lg-10">
             <%= yield %>

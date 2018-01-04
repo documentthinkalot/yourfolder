@@ -1,7 +1,7 @@
 class Sub4categoriesController < ApplicationController
   before_action :set_sub4category
   def show
-    @posts = @sub4category.posts.order("created_at desc").page(params[:page]).per(12)
+    @posts = @sub4category.posts.sort(params[:sort]).page(params[:page]).per(12)
   end
 private
   # Use callbacks to share common setup or constraints between actions.
