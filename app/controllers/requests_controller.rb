@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
+  layout "requests_layout"
 
   # GET /requests
   # GET /requests.json
@@ -71,6 +72,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:body, :user_id, :title, :category_id)
+      params.require(:request).permit(:body, :user_id, :title, :category_id, :subcategory_id, :sub2category_id, :sub3category_id, :sub4category_id, :sub5category_id, :sub6category_id)
     end
 end

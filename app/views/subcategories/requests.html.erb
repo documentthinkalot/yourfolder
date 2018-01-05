@@ -1,11 +1,14 @@
 <p id="notice"><%= notice %></p>
 <div>
-  <h1><i class="fa fa-share-square-o fa-lg" aria-hidden="true"></i> <%= @category.name %> の共有リクエスト</h1>
+  <h1><i class="fa fa-share-square-o fa-lg" aria-hidden="true"></i>
+    <%= @subcategory.category.name %>
+    > <%= @subcategory.subcategory_name %> の共有リクエスト
+  </h1>
   <%= render partial: '/requests/requests_index', locals: {response: @response, requests: @requests} %>
 </div>
 <hr>
 <% if user_signed_in? %>
-  <%= render partial: '/requests/form', locals: {path: '/requests/main_form'} %>
+  <%= render partial: '/requests/form', locals: {path: '/requests/sub_form'} %>
 <% else %>
   <%= link_to "ログインして共有リクエストする", new_user_session_path, class: 'post' %>
 <% end %>

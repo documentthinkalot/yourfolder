@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :requests]
+  layout "requests_layout", only: :requests
   def show
     @posts = @category.posts.sort(params[:sort]).page(params[:page]).per(12)
   end

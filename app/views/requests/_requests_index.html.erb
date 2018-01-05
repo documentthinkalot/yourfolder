@@ -11,7 +11,40 @@
                   <strong><%= request.title %></strong>
                   by <%= link_to user_path(request.user) do %><%= request.user.nickname %><% end %>
                   <%= request.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
-                  <%= link_to category_path(id: request.category.id) do %><span class="label label-default"><%= request.category.name %></span><% end %>
+                  <!-- カテゴリバッジ -->
+                  <%= link_to requests_category_path(id: request.category.id) do %>
+                    <span class="label label-default"><%= request.category.name %></span>
+                  <% end %>
+                  <% if request.subcategory %>
+                    <%= link_to requests_subcategory_path(id: request.subcategory.id) do %>
+                      <span class="label label-default"><%= request.subcategory.subcategory_name %></span>
+                    <% end %>
+                  <% end %>
+                  <% if request.sub2category %>
+                    <%= link_to requests_sub2category_path(id: request.sub2category.id) do %>
+                      <span class="label label-default"><%= request.sub2category.sub2category_name %></span>
+                    <% end %>
+                  <% end %>
+                  <% if request.sub3category %>
+                    <%= link_to requests_sub3category_path(id: request.sub3category.id) do %>
+                      <span class="label label-default"><%= request.sub3category.sub3category_name %></span>
+                    <% end %>
+                  <% end %>
+                  <% if request.sub4category %>
+                    <%= link_to requests_sub4category_path(id: request.sub4category.id) do %>
+                      <span class="label label-default"><%= request.sub4category.sub4category_name %></span>
+                    <% end %>
+                  <% end %>
+                  <% if request.sub5category %>
+                    <%= link_to requests_sub5category_path(id: request.sub5category.id) do %>
+                      <span class="label label-default"><%= request.sub5category.sub5category_name %></span>
+                    <% end %>
+                  <% end %>
+                  <% if request.sub6category %>
+                    <%= link_to requests_sub6category_path(id: request.sub6category.id) do %>
+                      <span class="label label-default"><%= request.sub6category.sub6category_name %></span>
+                    <% end %>
+                  <% end %>
                 </p>
               </h4>
               <p style="height:30px; font-size: 9pt;"><%= request.body %></p>

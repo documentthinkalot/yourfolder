@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<div>
+  <h1><i class="fa fa-share-square-o fa-lg" aria-hidden="true"></i>
+    <%= @sub4category.sub3category.sub2category.subcategory.category.name %>
+    > <%= @sub4category.sub3category.sub2category.subcategory.subcategory_name %>
+    > <%= @sub4category.sub3category.sub2category.sub2category_name %>
+    > <%= @sub4category.sub3category.sub3category_name %>
+    > <%= @sub4category.sub4category_name %> の共有リクエスト
+  </h1>
+  <%= render partial: '/requests/requests_index', locals: {response: @response, requests: @requests} %>
+</div>
+<hr>
+<% if user_signed_in? %>
+  <%= render partial: '/requests/form', locals: {path: '/requests/sub4_form'} %>
+<% else %>
+  <%= link_to "ログインして共有リクエストする", new_user_session_path, class: 'post' %>
+<% end %>

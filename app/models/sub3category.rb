@@ -2,6 +2,7 @@ class Sub3category < ActiveRecord::Base
   belongs_to :sub2category
   has_many :sub4category
   has_many :posts
+  has_many :requests
   def self.sort(sort)
     #新しい順
     if sort == "created_at_desc"
