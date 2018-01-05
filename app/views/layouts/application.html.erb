@@ -91,6 +91,7 @@
             <h3><i class="fa fa-search" aria-hidden="true"></i> アイテムを探す</h3>
             <!-- 暫定的な実装です、雑ですみません……。 -->
             <ul>
+              <li style="margin-left:-16px;list-style:none;"><%= link_to "全てのアイテム", posts_path,:style=>"text-decoration:none;" %></li>
               <% Category.all.each do |category| %>
                 <details>
                   <summary style="margin-left: -30px;"><%= link_to category.name, category,:style=>"text-decoration:none;" %></summary>

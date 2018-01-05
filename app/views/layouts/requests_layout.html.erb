@@ -91,6 +91,7 @@
             <h3 style="font-size:10.5pt;"><i class="fa fa-search" aria-hidden="true"></i> 共有リクエストを探す</h3>
             <!-- 暫定的な実装です、雑ですみません……。 -->
             <ul>
+              <li style="margin-left:-16px;list-style:none;"><%= link_to "全ての共有リクエスト", requests_path,:style=>"text-decoration:none;" %></li>
               <% Category.all.each do |category| %>
                 <details>
                   <summary style="margin-left: -30px;"><%= link_to category.name, requests_category_path(category.id),:style=>"text-decoration:none;" %></summary>
