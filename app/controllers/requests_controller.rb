@@ -14,6 +14,7 @@ class RequestsController < ApplicationController
   # GET /requests/1
   # GET /requests/1.json
   def show
+    @responses = @request.responses
   end
 
   # GET /requests/new

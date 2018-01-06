@@ -1,4 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_request_path(@request) %> |
-<%= link_to 'Back', requests_path %>
+<div class="info">
+  <p>
+    <p style="margin-bottom:-10px;"><%= @request.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
+    <h1><strong><%= @request.title %></strong></h1>
+    <p style="text-align: right; margin-top:0px;"></p>
+  </p>
+</div>
+<p>
+  <hr>
+  <%= simple_format(@request.body) %>
+</p>
+
+<h3><i class="fa fa-comments" aria-hidden="true"></i> 返信</h3>
+<div class="comments" id="comments">
+  <% @responses.each do |response| %>
+    <div id="comment_<%= response.id %>">
+      <strong><i class="fa fa-comment" aria-hidden="true"></i> <%= response.user.nickname %></strong> <%= response.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M") %>
+      </br><%= response.body %>
+      <hr>
+    </div>
+  <% end %>
+</div>
