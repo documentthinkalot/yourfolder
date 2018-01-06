@@ -27,7 +27,7 @@ class Scraping
     page = agent.get('https://lifeworker.jp/job-category/jobcategory-and-business-summary.html')
     elements = page.search('td')
     elements.each do |inner|
-      inner = ele.inner_text.split("、")
+      inner = inner.inner_text.split("、")
       inner.each do |ele|
         array = []
         ele.each_line{|line| array << line }
