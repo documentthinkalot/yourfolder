@@ -5,7 +5,8 @@ class RequestsController < ApplicationController
   # GET /requests
   # GET /requests.json
   def index
-    @requests = Request.all
+    @re = Request.all.reject{|e| e.responses.exists?}
+    @requests = Request.all.sort(params[:sort])
     @request  = @requests.build(user_id: current_user.id) if current_user
     @response = Response.all.build(user_id: current_user.id) if current_user
   end

@@ -6,7 +6,7 @@ class SubcategoriesController < ApplicationController
   end
 
   def requests
-    @requests = @subcategory.requests
+    @requests = @subcategory.requests.sort(params[:sort])
     @request  = @requests.build(user_id: current_user.id) if current_user
     @response = Response.all.build(user_id: current_user.id) if current_user
   end

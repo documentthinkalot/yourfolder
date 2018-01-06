@@ -8,7 +8,7 @@
     > <%= @sub5category.sub4category.sub4category_name %>
     > <%= @sub5category.sub5category_name %> の共有リクエスト
   </h1>
-  <%= render partial: '/requests/requests_index', locals: {response: @response, requests: @requests} %>
+  <%= render partial: '/requests/requests_index', locals: {response: @response, requests: @requests, path: requests_sub5category_path } %>
 </div>
 <hr>
 <% if user_signed_in? %>

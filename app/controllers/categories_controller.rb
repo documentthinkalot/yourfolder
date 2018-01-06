@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def requests
-    @requests = @category.requests
+    @requests = @category.requests.sort(params[:sort])
     @request  = @requests.build(user_id: current_user.id) if current_user
     @response = Response.all.build(user_id: current_user.id) if current_user
   end
