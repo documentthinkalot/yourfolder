@@ -18,7 +18,7 @@ private
   end
 
   def user_params
-    params.require(:user).permit(:nickname, :sex, :company, :circumstances, :position, :age, :number, :place_id, :industry_id, :occupation_id)
+    params.require(:user).permit(:nickname, :sex, :company, :circumstances, :position, :age, :number, :place_id, :industry_id, :occupation_id, :sex_status, :age_status, :industry_status, :occupation_status)
   end
 
 end

@@ -25,11 +25,15 @@
         <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', default: 'we need your current password to confirm your changes') %>)</i>
         <%= f.password_field :current_password, class: 'form-control' %>
       <div class="form-group">
-        <%= f.label :sex, '性別' %><br />
+        <%= f.label :sex, '性別' %>&nbsp;
+        <%= f.label :sex_status, '※公開する' %>
+        <%= f.check_box 'sex_status',{}, "public", "private" %><br />
         <%= f.select :sex, options_for_select(["男性","女性"]), {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'} %>
       </div>
       <div class="form-group">
-        <%= f.label :age, '年齢（半角数字）' %><br />
+        <%= f.label :age, '年齢（半角数字）' %>&nbsp;
+        <%= f.label :age_status, '※公開する' %>
+        <%= f.check_box 'age_status',{}, "public", "private" %><br />
         <%= f.text_field :age, autofocus: true, class: 'form-control'  %>
       </div>
       <div class="form-group">
@@ -43,11 +47,15 @@
         <%= f.text_field :company, autofocus: true, class: 'form-control'  %>
       </div>
       <div class="form-group">
-        <%= f.label :industry, '業種' %><br />
+        <%= f.label :industry, '業種' %>&nbsp;
+        <%= f.label :industry_status, '※公開する' %>
+        <%= f.check_box 'industry_status',{}, "public", "private" %><br />
         <%= f.collection_select :industry_id, Industry.all, :id, :name, {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
       </div>
       <div class="form-group">
-        <%= f.label :occupation, '職種' %><br />
+        <%= f.label :occupation, '職種' %>&nbsp;
+        <%= f.label :occupation_status, '※公開する' %>
+        <%= f.check_box 'occupation_status',{}, "public", "private" %><br />
         <%= f.collection_select :occupation_id, Occupation.all, :id, :name, {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
       </div>
       <div class="form-group">

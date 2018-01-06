@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180105000403) do
+ActiveRecord::Schema.define(version: 20180106121655) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -180,6 +180,10 @@ ActiveRecord::Schema.define(version: 20180105000403) do
     t.integer  "industry_id",            limit: 4
     t.integer  "occupation_id",          limit: 4
     t.text     "biography",              limit: 65535
+    t.string   "sex_status",             limit: 255
+    t.string   "age_status",             limit: 255
+    t.string   "occupation_status",      limit: 255
+    t.string   "industry_status",        limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

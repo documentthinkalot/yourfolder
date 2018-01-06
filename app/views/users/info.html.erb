@@ -14,21 +14,31 @@
           <table class="table">
             <tbody>
               <tr>
-                <td>ユーザー名：</td>
+                <td>ユーザー名： <span class="label label-default">公開</span></td></td>
                 <td><%= @user.nickname %></td>
               </tr>
-              <!-- 自分以外に対して非公開の情報 -->
+              <!-- 自分に対して表示されるビュー -->
               <% if user_signed_in? && @user==current_user %>
                 <tr>
                   <td>Eメール： <span class="label label-default">非公開</span></td>
                   <td><%= @user.email %></td>
                 </tr>
                 <tr>
-                  <td>性別： <span class="label label-default">非公開</span></td>
+                  <td>性別：
+                    <% if @user.sex_status == "public" %>
+                      <span class="label label-default">公開</span></td>
+                    <% else %>
+                      <span class="label label-default">非公開</span></td>
+                    <% end %>
                   <td><%= @user.sex %></td>
                 </tr>
                 <tr>
-                  <td>年齢： <span class="label label-default">非公開</span></td>
+                  <td>年齢：
+                    <% if @user.age_status == "public" %>
+                      <span class="label label-default">公開</span></td>
+                    <% else %>
+                      <span class="label label-default">非公開</span></td>
+                    <% end %>
                   <td><%= @user.age %></td>
                 </tr>
                 <tr>
@@ -39,23 +49,56 @@
                   <td>会社名： <span class="label label-default">非公開</span></td>
                   <td><%= @user.company %></td>
                 </tr>
-              <% end %>
-              <tr>
-                <td>業種：</td>
-                <td><%= @user.industry.name %></td>
-              </tr>
-              <tr>
-                <td>職種：</td>
-                <td><%= @user.occupation.name %></td>
-              </tr>
-              <% if user_signed_in? && @user==current_user %>
+                <tr>
+                  <td>業種：
+                  <% if @user.industry_status == "public" %>
+                    <span class="label label-default">公開</span></td>
+                  <% else %>
+                    <span class="label label-default">非公開</span></td>
+                  <% end %>
+                  <td><%= @user.industry.name %></td>
+                </tr>
+                <tr>
+                  <td>職種：
+                  <% if @user.occupation_status == "public" %>
+                      <span class="label label-default">公開</span></td>
+                    <% else %>
+                      <span class="label label-default">非公開</span></td>
+                    <% end %>
+                  <td><%= @user.occupation.name %></td>
+                </tr>
                 <tr>
                   <td>役職： <span class="label label-default">非公開</span></td>
                   <td><%= @user.position %></td>
                 </tr>
                 <tr>
-                  <td>従業員の数：</td>
+                  <td>従業員の数： <span class="label label-default">非公開</span></td>
                   <td><%= @user.number_of_employees %></td>
+                </tr>
+              <% else %>
+                <tr>
+                  <% if @user.sex_status == "public" %>
+                    <td>性別：</td>
+                    <td><%= @user.sex %></td>
+                  <% end %>
+                </tr>
+                <tr>
+                  <% if @user.age_status == "public" %>
+                    <td>年齢：</td>
+                    <td><%= @user.age %></td>
+                  <% end %>
+                </tr>
+                <tr>
+                  <% if @user.industry_status == "public" %>
+                    <td>業種：</td>
+                    <td><%= @user.industry.name %></td>
+                  <% end %>
+                </tr>
+                <tr>
+                  <% if @user.occupation_status == "public" %>
+                    <td>職種：</td>
+                    <td><%= @user.occupation.name %></td>
+                  <% end %>
                 </tr>
               <% end %>
               <tr>
