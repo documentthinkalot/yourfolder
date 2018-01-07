@@ -41,6 +41,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # 下記を追記
+  config.action_mailer.default_url_options = { :host => '153.122.115.141:8443' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { address: 'localhost', port: 25 }
 end
