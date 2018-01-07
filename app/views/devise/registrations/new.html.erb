@@ -21,6 +21,7 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, class: 'form-control'  %>
       </div>
+      <div>
         <%= f.label :sex, '性別' %>&nbsp;
         <%= f.label :sex_status, '※公開する' %>
         <%= f.check_box 'sex_status',{}, "public", "private" %><br />
