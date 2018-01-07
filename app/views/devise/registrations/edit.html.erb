@@ -6,11 +6,11 @@
   <div class="panel-body">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <div class="form-group">
-        <%= f.label :nickname, 'ユーザー名' %><br />
+        <%= f.label :nickname, 'ユーザー名', class:"required" %><br />
         <%= f.text_field :nickname, autofocus: true, class: 'form-control'  %>
       </div>
       <div class="form-group">
-        <%= f.label :email %>
+        <%= f.label :email, class:"required" %>
         <%= f.email_field :email, autofocus: true, class: 'form-control' %>
       </div>
       <div class="form-group">
@@ -22,52 +22,51 @@
         <%= f.password_field :password_confirmation, class: 'form-control'  %>
       </div>
       <div class="form-group">
-        <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', default: 'we need your current password to confirm your changes') %>)</i>
+        <%= f.label :current_password, class:"required" %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', default: 'we need your current password to confirm your changes') %>)</i>
         <%= f.password_field :current_password, class: 'form-control' %>
       <div class="form-group">
-        <%= f.label :sex, '性別' %>&nbsp;
+        <%= f.label :sex, '性別', class:"required" %>&nbsp;
         <%= f.label :sex_status, '※公開する' %>
         <%= f.check_box 'sex_status',{}, "public", "private" %><br />
         <%= f.select :sex, options_for_select(["男性","女性"]), {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'} %>
       </div>
       <div class="form-group">
-        <%= f.label :age, '年齢（半角数字）' %>&nbsp;
+        <%= f.label :age, '年齢（半角数字）', class:"required" %>&nbsp;
         <%= f.label :age_status, '※公開する' %>
         <%= f.check_box 'age_status',{}, "public", "private" %><br />
         <%= f.text_field :age, autofocus: true, class: 'form-control'  %>
       </div>
       <div class="form-group">
-        <%= f.label :place, '勤め先の場所' %><br />
+        <%= f.label :place, '勤め先の場所', class:"required" %><br />
         <%= f.collection_select :place_id, Place.all, :id, :name, {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
       </div>
       <div class="form-group">
-        <%= f.label :company, '会社名（任意）' %><br />
-        <p style="font-size:10pt;">※本件に関し会社様に御連絡することはございません。
-        <br>当プラットフォームの利用実態の把握に利用させていただきます。</p>
+        <%= f.label :company, '会社名' %><br />
+        <p style="font-size:10pt;">※ユーザー様の企業名を開示することはございません。</p>
         <%= f.text_field :company, autofocus: true, class: 'form-control'  %>
       </div>
       <div class="form-group">
-        <%= f.label :industry, '業種' %>&nbsp;
+        <%= f.label :industry, '業種', class:"required" %>&nbsp;
         <%= f.label :industry_status, '※公開する' %>
         <%= f.check_box 'industry_status',{}, "public", "private" %><br />
         <%= f.collection_select :industry_id, Industry.all, :id, :name, {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
       </div>
       <div class="form-group">
-        <%= f.label :occupation, '職種' %>&nbsp;
+        <%= f.label :occupation, '職種', class:"required" %>&nbsp;
         <%= f.label :occupation_status, '※公開する' %>
         <%= f.check_box 'occupation_status',{}, "public", "private" %><br />
         <%= f.collection_select :occupation_id, Occupation.all, :id, :name, {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
       </div>
       <div class="form-group">
-        <%= f.label :position, '役職' %><br />
+        <%= f.label :position, '役職', class:"required" %><br />
         <%= f.select :position, options_for_select(["従業員", "係長相当", "課長相当", "部長相当", "役員相当", "代表"]), {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
       </div>
       <div class="form-group">
-        <%= f.label :number_of_employees, '従業員の数' %><br />
+        <%= f.label :number_of_employees, '従業員の数', class:"required" %><br />
         <%= f.select :number_of_employees, options_for_select(["10名以下",  "100名以下", "1000名以下", "10000名以下", "10000名以上"]), {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'} %>
       </div>
       <div class="form-group">
-        <%= f.label :circumstances, 'このサイトを知ったきっかけ' %><br />
+        <%= f.label :circumstances, 'このサイトを知ったきっかけ', class:"required" %><br />
         <%= f.select :circumstances, options_for_select(["知人の紹介", "相互リンク", "キュレーションサイト", "検索エンジンで直接ヒット"]), {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
       </div>
       <div class="form-group">

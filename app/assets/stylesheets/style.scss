@@ -182,3 +182,8 @@ a.btn:visited {
   -moz-border-radius: 6px 0 6px 6px;
   border-radius: 6px 0 6px 6px;
 }
+
+.required:after {
+  content: " *";
+  color: #E00;
+}
