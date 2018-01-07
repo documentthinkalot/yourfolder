@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   require 'RMagick'
+  require 'libreconv'
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
