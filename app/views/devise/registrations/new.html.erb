@@ -64,7 +64,7 @@
       </div>
       <div class="form-group">
         <%= f.label :circumstances, 'このサイトを知ったきっかけ', class:"required" %><br />
-        <%= f.select :circumstances, options_for_select(["知人の紹介", "相互リンク", "キュレーションサイト", "検索エンジンで直接ヒット"]), {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
+        <%= f.select :circumstances, options_for_select(["知人の紹介", "相互リンク", "キュレーションサイト", "検索エンジンで直接ヒット", "その他"]), {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
       </div>
       <div class="form-group">
         <%= f.label :biography, '自己紹介' %><br />
