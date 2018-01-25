@@ -19,9 +19,6 @@
     <%= f.label :filetype_id, 'ファイル種別' %><br />
     <%= f.collection_select :filetype_id, Filetype.all, :id, :name, {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
   </div>
-  <div class="form-group filetype2_area">
-<!--     <%= render partial: 'select_filetype2', locals: {filetype_id: Filetype.first.id} %> -->
-  </div>
   <div class="form-group">
     <%= f.label :category_id, 'カテゴリ' %><br />
     <%= f.collection_select :category_id, Category.all, :id, :name, {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>

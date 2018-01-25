@@ -1,3 +1,0 @@
-<% if Filetype2.where(filetype_id: filetype_id).exists? %>
-  <%= collection_select :post, :filetype2_id, Filetype2.where(filetype_id: filetype_id), :id, :filetype2_name, {prompt:"選択してください"}, {class: 'form-control'} %>
-<% end %>

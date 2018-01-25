@@ -9,7 +9,6 @@ Rails.application.routes.draw do
       get 'get_sub4category'
       get 'get_sub5category'
       get 'get_sub6category'
-      get 'get_filetype2'
     end
   end
   resources :requests
@@ -19,7 +18,6 @@ Rails.application.routes.draw do
   resources :categories
   resources :comments
   resources :filetypes
-  resources :filetype2s
   resources :industries
   resources :likes
   resources :occupations

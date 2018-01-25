@@ -57,13 +57,3 @@ $(document).on 'change', '#post_sub5category_id', ->
     }
   ).done (data) ->
     $('.sub6category_area').html(data)
-
-$(document).on 'change', '#post_filetype_id', ->
-  $.ajax(
-    type: 'GET'
-    url: '/posts/get_filetype2'
-    data: {
-      filetype_id: $(this).val()
-    }
-  ).done (data) ->
-    $('.filetype2_area').html(data)

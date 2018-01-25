@@ -8,11 +8,10 @@ class Post < ActiveRecord::Base
   belongs_to :sub5category
   belongs_to :sub6category
   belongs_to :filetype
-  belongs_to :filetype2
   has_many :comments
   has_many :likes
   has_many :like_posts, through: :likes, source: :post
-  validates_presence_of :user_id, :title, :body, :category_id, :filetype_id, :filetype2_id
+  validates_presence_of :user_id, :title, :body, :category_id, :filetype_id
   mount_uploader :file, FileUploader
   def self.search(search)
     if search

@@ -1,6 +1,5 @@
 class Filetype < ActiveRecord::Base
   has_many :posts
-  has_many :filetype2s
   def self.sort(sort)
     #新しい順
     if sort == "created_at_desc"
