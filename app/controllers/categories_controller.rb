@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :requests]
+  # リクエストの場合は左段カテゴリのリンク先をリクエストにするレイアウトを読み込み
   layout "requests_layout", only: :requests
   def show
     @posts = @category.posts.sort(params[:sort]).page(params[:page]).per(12)

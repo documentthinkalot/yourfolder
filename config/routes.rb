@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users do
+    member do
+      get 'likes'
+      get 'info'
+    end
+  end
+  resources :tops, only: :index
   resources :posts do
-    resources :likes, only: [:create, :destroy]
+    resources :likes
     collection do
       get 'get_subcategory'
       get 'get_sub2category'
@@ -11,64 +18,48 @@ Rails.application.routes.draw do
       get 'get_sub6category'
     end
   end
+  resources :comments, only: [:destroy, :create, :index]
   resources :requests
-  resources :responses
-  resources :users
-  resources :articles
-  resources :categories
-  resources :comments
-  resources :filetypes
+  resources :responses, only: [:destroy, :create, :index]
+  resources :articles, only: :show
   resources :industries
-  resources :likes
   resources :occupations
   resources :places
-  resources :posts
-  resources :subcategories do
-    member do
-      get 'requests'
-    end
-  end
-  resources :sub2categories do
-    member do
-      get 'requests'
-    end
-  end
-  resources :sub3categories do
-    member do
-      get 'requests'
-    end
-  end
-  resources :sub4categories do
-    member do
-      get 'requests'
-    end
-  end
-  resources :sub5categories do
-    member do
-      get 'requests'
-    end
-  end
-  resources :sub6categories do
-    member do
-      get 'requests'
-    end
-  end
-  resources :tweets, only: :index
-  resources :tops, only: :index
-  resources :comments
-  resources :users do
-    member do
-      get 'likes'
-      get 'info'
-    end
-  end
-  resources :articles
-  resources :categories do
-    member do
-      get 'requests'
-    end
-  end
   resources :filetypes, only: :show
-  resources :filetype2s, only: :show
+  resources :categories, only: [:show, :requests] do
+    member do
+      get 'requests'
+    end
+  end
+  resources :subcategories, only: [:show, :requests] do
+    member do
+      get 'requests'
+    end
+  end
+  resources :sub2categories, only: [:show, :requests] do
+    member do
+      get 'requests'
+    end
+  end
+  resources :sub3categories, only: [:show, :requests] do
+    member do
+      get 'requests'
+    end
+  end
+  resources :sub4categories, only: [:show, :requests] do
+    member do
+      get 'requests'
+    end
+  end
+  resources :sub5categories, only: [:show, :requests] do
+    member do
+      get 'requests'
+    end
+  end
+  resources :sub6categories, only: [:show, :requests] do
+    member do
+      get 'requests'
+    end
+  end
   root 'top#index'
 end

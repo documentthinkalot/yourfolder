@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user
+  before_action :authenticate_user!, only: [:likes]
 
 def show
   @posts = @user.posts.sort(params[:sort]).page(params[:page]).per(12)
