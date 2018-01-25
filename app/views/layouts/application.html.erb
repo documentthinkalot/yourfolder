@@ -35,15 +35,15 @@
             <li class="dropdown">
               <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i> アイテムを探す<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li class="dropdown-header">ジャンル</li>
-                <li><%= link_to posts_path do %>全てのアイテム<% end %></li>
-                <% Filetype.all.each do |filetype| %>
-                  <li><%= link_to filetype_path(id: filetype.id) do %><%= filetype.name %><% end %></li>
-                <% end %>
-                <li role="separator" class="divider"></li>
                 <li class="dropdown-header">特集</li>
-                <li><a href="/">新着記事</a></li>
-                <li><a href="/">人気ランキング</a></li>
+                <li><%= link_to posts_path do %>全てのアイテム<% end %></li>
+                <% Category.all.each do |category| %>
+                  <li role="separator" class="divider"></li>
+                  <%= link_to category_path(id: category.id) do %><li class="dropdown-header"><%= category.name %></li><% end %>
+                  <% category.subcategories.each do |subcategory| %>
+                    <li><%= link_to subcategory_path(id: subcategory.id) do %><%= subcategory.subcategory_name %><% end %></li>
+                  <% end %>
+                <% end %>
               </ul>
             </li>
           </ul>
