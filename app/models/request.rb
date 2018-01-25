@@ -1,5 +1,5 @@
 class Request < ActiveRecord::Base
-  has_many :responses
+  has_many :responses, dependent: :destroy
   belongs_to :category
   belongs_to :subcategory
   belongs_to :sub2category

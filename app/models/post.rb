@@ -8,8 +8,8 @@ class Post < ActiveRecord::Base
   belongs_to :sub5category
   belongs_to :sub6category
   belongs_to :filetype
-  has_many :comments
-  has_many :likes
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
   validates_presence_of :user_id, :title, :body, :category_id, :filetype_id
   mount_uploader :file, FileUploader

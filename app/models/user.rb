@@ -6,12 +6,11 @@ class User < ActiveRecord::Base
   belongs_to :place
   belongs_to :industry
   belongs_to :occupation
-  has_many :posts
-  has_many :comments
-  has_many :articles
-  has_many :likes
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
-  has_many :requests
+  has_many :requests, dependent: :destroy
   #usernameを必須とする
   validates_uniqueness_of :email, :nickname
   validates_presence_of :nickname, :email, :password,:sex, :number_of_employees, :industry_id, :occupation_id, :place_id, :position, :circumstances, :age
