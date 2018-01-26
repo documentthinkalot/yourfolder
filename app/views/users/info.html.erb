@@ -56,7 +56,7 @@
                   <% else %>
                     <span class="label label-default">非公開</span></td>
                   <% end %>
-                  <td><%= @user.industry.name %></td>
+                  <td><%= @user.subindustry.name %></td>
                 </tr>
                 <tr>
                   <td>職種：
@@ -65,7 +65,7 @@
                     <% else %>
                       <span class="label label-default">非公開</span></td>
                     <% end %>
-                  <td><%= @user.occupation.name %></td>
+                  <td><%= @user.suboccupation.name %></td>
                 </tr>
                 <tr>
                   <td>役職： <span class="label label-default">非公開</span></td>

@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :place
   belongs_to :industry
+  belongs_to :subindustry
   belongs_to :occupation
+  belongs_to :suboccupation
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy

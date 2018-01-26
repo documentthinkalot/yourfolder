@@ -52,6 +52,7 @@
         <%= f.collection_select :industry_id, Industry.all, :id, :name, {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
       </div>
       <div class="form-group subindustry_area">
+          <%= f.collection_select :subindustry_id, Subindustry.all, :id, :name, {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
       </div>
       <div class="form-group">
         <%= f.label :occupation, '職種', class:"required" %>&nbsp;
@@ -60,6 +61,7 @@
         <%= f.collection_select :occupation_id, Occupation.all, :id, :name, {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
       </div>
       <div class="form-group suboccupation_area">
+        <%= f.collection_select :suboccupation_id, Suboccupation.all, :id, :name, {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
       </div>
       <div class="form-group">
         <%= f.label :position, '役職', class:"required" %><br />
