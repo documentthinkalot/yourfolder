@@ -48,11 +48,15 @@
         <%= f.check_box 'industry_status',{}, "public", "private" %><br />
         <%= f.collection_select :industry_id, Industry.all, :id, :name, {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
       </div>
+      <div class="form-group subindustry_area">
+      </div>
       <div class="form-group">
         <%= f.label :occupation, '職種', class:"required" %>&nbsp;
         <%= f.label :occupation_status, '※公開する' %>
         <%= f.check_box 'occupation_status',{}, "public", "private" %><br />
         <%= f.collection_select :occupation_id, Occupation.all, :id, :name, {prompt:"選択してください"}, { autofocus: 'true', class: 'form-control'}  %>
+      </div>
+      <div class="form-group suboccupation_area">
       </div>
       <div class="form-group">
         <%= f.label :position, '役職', class:"required" %><br />

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users do
+    collection do
+      get 'get_suboccupation'
+      get 'get_subindustry'
+    end
     member do
       get 'likes'
       get 'info'

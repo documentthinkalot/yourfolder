@@ -1,0 +1,3 @@
+<% if Subindustry.where(industry_id: industry_id).exists? %>
+  <%= collection_select :user, :subindustry_id, Subindustry.where(industry_id: industry_id), :id, :name, {prompt:"選択してください"}, {class: 'form-control'} %>
+<% end %>

@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :requests, dependent: :destroy
   #usernameを必須とする
   validates_uniqueness_of :email, :nickname
-  validates_presence_of :nickname, :email, :password,:sex, :number_of_employees, :industry_id, :occupation_id, :place_id, :position, :circumstances, :age
+  validates_presence_of :nickname, :email, :password,:sex, :number_of_employees, :industry_id, :subindustry_id, :occupation_id, :suboccupation_id, :place_id, :position, :circumstances, :age
   def self.sort(sort)
     #新しい順
     if sort == "created_at_desc"

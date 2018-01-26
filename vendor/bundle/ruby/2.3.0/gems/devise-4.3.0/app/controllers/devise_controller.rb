@@ -206,5 +206,9 @@ MESSAGE
     params.fetch(resource_name, {})
   end
 
+def get_subindustry
+  binding.pry
+end
+
   ActiveSupport.run_load_hooks(:devise_controller, self)
 end
