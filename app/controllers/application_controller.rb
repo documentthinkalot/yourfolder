@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_account_update_params, if: :devise_controller?
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :sex, :company, :circumstances, :position, :age, :number_of_employees, :place_id, :industry_id, :occupation_id, :biography, :sex_status, :age_status, :industry_status, :occupation_status])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :sex, :company, :circumstances, :position, :age, :number_of_employees, :place_id, :industry_id, :suboccupation_id, :occupation_id, :subindustry_id, :biography, :sex_status, :age_status, :industry_status, :occupation_status])
   end
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :sex, :company, :circumstances, :position, :age, :number_of_employees, :place_id, :industry_id, :occupation_id, :biography, :sex_status, :age_status, :industry_status, :occupation_status])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :sex, :company, :circumstances, :position, :age, :number_of_employees, :place_id, :suboccupation_id, :industry_id, :subindustry_id, :occupation_id, :biography, :sex_status, :age_status, :industry_status, :occupation_status])
   end
   def after_sign_out_path_for(resource)
     '/users/sign_in' # サインアウト後のリダイレクト先URL

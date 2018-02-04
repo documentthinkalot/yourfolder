@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  # リクエスト表示時は左メニューを変えるため、別途レイアウトを定義
   layout "requests_layout"
 
   # GET /requests
