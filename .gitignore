@@ -13,5 +13,5 @@
 /tmp
 
 # ローカル環境で使用したファイルを無視
-public/uploads
-vendor/bundle
+public/uploads/**
+vendor/bundle/**
